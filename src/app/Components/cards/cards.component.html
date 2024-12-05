@@ -1,0 +1,189 @@
+<h2>{{titulo}}</h2>
+
+<div class="max-w-5xl min-w-[300px] mx-auto bg-white rounded-lg shadow-md">
+    <div class="w-full max-w-4xl mx-auto bg-white rounded-lg p-4">
+        <!-- Input para texto -->
+        <!-- <ckeditor *ngIf="( Editor && config )" data="<p>Hello, world!</p>" [editor]="Editor" [config]="config">
+        </ckeditor> -->
+
+
+
+        <div #editorElement>
+            <ckeditor [editor]="Editor" [config]="config" *ngIf="Editor && config" />
+        </div>
+
+
+        <!-- <ckeditor [(ngModel)]="postContent" [editor]="Editor" [config]="editorConfig" class="border rounded-lg">
+        </ckeditor> -->
+
+        <!-- <textarea [(ngModel)]="postContent" placeholder="¿Qué estás pensando?"
+            class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            rows="4"></textarea> -->
+
+        <!-- Etiquetar personas -->
+        <div class="my-2">
+            <input [(ngModel)]="tagInput" placeholder="Etiqueta personas"
+                class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" />
+            <div class="flex flex-wrap mt-2">
+                <span *ngFor="let tag of tags"
+                    class="bg-blue-500 text-white rounded-full px-3 py-1 text-sm mr-2 mb-2 flex items-center">
+                    {{ tag }}
+                    <button (click)="removeTag(tag)" class="ml-2 text-white hover:text-gray-200 focus:outline-none">
+                        ✕
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <!-- Subir archivos -->
+        <div class="my-2">
+            <label class="block text-sm font-medium text-gray-700">Sube archivos:</label>
+            <input type="file" (change)="onFileSelected($event)" multiple accept=".jpg,.jpeg,.png,.pdf,.xls,.xlsx,.docx,.doc,.txt"
+                class="mt-1 block w-full text-sm border rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+            <ul class="mt-2">
+                <li *ngFor="let file of selectedFiles" class="flex items-center text-sm text-gray-600 mb-2">
+                    <span class="mr-2">
+                        <!-- Muestra el ícono dependiendo del tipo de archivo -->
+                        <i [ngClass]="getFileIcon(file)" class="text-xl"></i>
+                    </span>
+                    <span>{{ file.name }}</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Botón de enviar -->
+        <button (click)="submitPost()"
+            class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            Publicar
+        </button>
+    </div>
+</div>
+<!-- <div class="max-w-3xl mx-auto bg-white p-4 rounded-lg shadow-md">
+    <div class="flex items-center space-x-3 mb-4">
+        <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Avatar" class="w-12 h-12 rounded-full">
+        <div class="flex-1">
+            <input type="text" placeholder="Título"
+                class="w-full p-2 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                readonly>
+        </div>
+    </div>
+
+    <textarea placeholder="Redacta el Mensaje..."
+        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+        rows="4"></textarea>
+
+    <div class="flex justify-between items-center mt-4 text-gray-500">
+        <div class="flex items-center space-x-6">
+            <button class="flex items-center space-x-2 hover:text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    class="w-5 h-5">
+                    <path d="M4 4h16v16H4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+                <span>Foto/Video</span>
+            </button>
+            <button class="flex items-center space-x-2 hover:text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    class="w-5 h-5">
+                    <path d="M12 7v10m5-5H7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+                <span>Emoción</span>
+            </button>
+        </div>
+
+        <button
+            class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none">Publicar</button>
+    </div>
+</div> -->
+<br>
+<!-- <div class="w-full max-w-4xl bg-base-200 mx-auto p-4 rounded-lg shadow-md">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+        <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            class="max-w-sm rounded-lg shadow-2xl" />
+        <div>
+            <h1 class="text-5xl font-bold">Box Office News!</h1>
+            <p class="py-6">
+                Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+                quasi. In deleniti eaque aut repudiandae et a id nisi.
+            </p>
+            <button class="btn btn-primary">Get Started</button>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+<div class="w-full max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-4 my-4">
+    <!-- Cabecera del post -->
+    <div class="flex items-center">
+        <img [src]="postData.user.profilePicture || 'assets/default-avatar.png'" alt="Avatar"
+            class="w-12 h-12 rounded-full" />
+        <div class="ml-3">
+            <h2 class="font-bold text-lg">{{ postData.user.name }}</h2>
+            <p class="text-sm text-gray-500">{{ postData.timestamp | date:'medium' }}</p>
+        </div>
+    </div>
+
+    <!-- Contenido del post -->
+    <div class="my-4">
+        <!-- Si hay texto -->
+        <div class="prose" [innerHTML]="postData.content"></div>
+
+        <!-- Si hay una imagen -->
+        <img *ngIf="postData.image" [src]="postData.image" alt="Post image" class="w-full rounded-lg mt-4" />
+    </div>
+
+    <!-- Sección de comentarios -->
+    <div class="mt-4">
+        <h3 class="font-semibold mb-2">Comentarios</h3>
+
+        <!-- Entrada para añadir comentario -->
+        <div class="flex items-start mb-4">
+            <img src="assets/images/logo-solo-sin-fondo.png" alt="Tu avatar" class="w-10 h-10 rounded-full" />
+            <textarea [(ngModel)]="newComment" placeholder="Escribe un comentario..."
+                class="w-full ml-3 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            <button (click)="addComment()" class="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                Comentar
+            </button>
+        </div>
+
+        <!-- Lista de comentarios -->
+        <div *ngFor="let comment of postData.comments" class="mb-4">
+            <div class="flex items-start">
+                <img [src]="comment.user.profilePicture || 'assets/default-avatar.png'" alt="Avatar"
+                    class="w-10 h-10 rounded-full" />
+                <div class="ml-3 w-full">
+                    <div class="bg-gray-100 p-3 rounded-lg">
+                        <h4 class="font-semibold">{{ comment.user.name }}</h4>
+                        <p class="text-sm" [innerHTML]="comment.content"></p>
+                    </div>
+                    <button (click)="toggleReplyBox(comment)" class="text-sm text-blue-500 mt-1 hover:underline">
+                        Responder
+                    </button>
+                </div>
+            </div>
+
+            <!-- Respuesta a comentarios -->
+            <div *ngIf="comment.showReplyBox" class="ml-12 mt-2">
+                <textarea [(ngModel)]="comment.reply" placeholder="Escribe una respuesta..."
+                    class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                <button (click)="addReply(comment)"
+                    class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                    Responder
+                </button>
+            </div>
+
+            <!-- Lista de respuestas -->
+            <div class="ml-12 mt-2 border-l-2 border-gray-300 pl-4">
+                <div *ngFor="let reply of comment.replies" class="flex items-start relative">
+                    <img src='assets/default-avatar.png' alt="Avatar"
+                        class="w-8 h-8 rounded-full" />
+                    <div class="ml-3 bg-gray-50 p-3 rounded-lg">
+                        <h5 class="font-semibold text-sm"></h5>
+                        <p class="text-sm" [innerHTML]=""></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

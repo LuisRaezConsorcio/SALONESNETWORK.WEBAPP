@@ -1,0 +1,14 @@
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .prose th, .prose td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .prose th {
+    background-color: #f4f4f4;
+    text-align: left;
+  }
