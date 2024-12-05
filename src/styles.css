@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .floating-label {
+        @apply py-3 px-2 w-full text-[.75rem] text-[#ab4141] bg-transparent border rounded-lg border-[#ab4141] appearance-none focus:outline-none focus:ring-0 focus:border-[#ab4141]  dark:border-[#ab4141] dark:bg-transparent dark:text-gray-300 dark:focus:border-[#ab4141] [&>option]:dark:bg-gray-800 disabled:bg-gray-50 disabled:dark:bg-gray-800
+
+    }
+    .label{
+        @apply absolute px-2 text-[.75rem] text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 left-0 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-[#ab4141] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto dark:text-gray-300 peer-focus:dark:text-[#ab4141] dark:bg-transparent
+    }
+
+    .floating-label-1{
+        @apply duration-150 transform -translate-y-4 scale-100 top-3 left-3 origin-[0] z-0 peer-focus:start-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-3 peer-focus:left-3 peer-focus:scale-75 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto
+    }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@media print {
+	body {
+		margin: 0 !important;
+	}
+}
+
+.main-container {
+	font-family: 'Lato';
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ck-content {
+	font-family: 'Lato';
+	line-height: 1.6;
+	word-break: break-word;
+}
+
+.editor-container_classic-editor .editor-container__editor {
+	min-width: 795px;
+	max-width: 795px;
+}
