@@ -1,0 +1,939 @@
+menu =
+    [
+        {
+            id: 1,
+            nombre: "Agronomía y Proyectos Industriales",
+            subMenus: [
+                { id: 1, nombre: "Codo del Pozuzo", tercerNivel: [] },
+                { id: 2, nombre: "Consolidado Agronomía", tercerNivel: [] },
+                { id: 3, nombre: "Forestal", tercerNivel: [] },
+                { id: 4, nombre: "Fundo Don Edmundo", tercerNivel: [] },
+                { id: 5, nombre: "Fundo Poroto - Trujillo", tercerNivel: [] },
+                { id: 6, nombre: "Otros Cultivos", tercerNivel: [] },
+                { id: 7, nombre: "PLANTA DE DESHIDRATADOS", tercerNivel: [] },
+                { id: 8, nombre: "Proyecto agroindustrial sobre cacao", tercerNivel: [] },
+                { id: 9, nombre: "Proyecto Palto - Bajo Mashoca / CDP", tercerNivel: [] },
+                { id: 10, nombre: "Proyecto Paracas", tercerNivel: [] },
+                { id: 11, nombre: "Proyecto Planta Maracuyá", tercerNivel: [] },
+                { id: 12, nombre: "Terrenos Chancayllo *", tercerNivel: [] },
+                { id: 13, nombre: "Agronomía", tercerNivel: [] }
+            ]
+        },
+        {
+            id: 2,
+            nombre: "AIRES ACONDICIONADOS",
+            subMenus: [
+                { id: 1, nombre: "..General", tercerNivel: [] },
+                { id: 2, nombre: "Area A & B", tercerNivel: [] },
+                { id: 3, nombre: "Area Almacen", tercerNivel: [] },
+                { id: 4, nombre: "Area Analisis de Produccion", tercerNivel: [] },
+                { id: 5, nombre: "Area Auditoria Interna", tercerNivel: [] },
+                { id: 6, nombre: "Area COMEX", tercerNivel: [] },
+                { id: 7, nombre: "Area Contabilidad", tercerNivel: [] },
+                { id: 8, nombre: "Area Decoraciones", tercerNivel: [] },
+                { id: 9, nombre: "Area Finanzas", tercerNivel: [] },
+                { id: 10, nombre: "Area Gerencia General", tercerNivel: [] },
+                { id: 11, nombre: "Area Gerencia Legal", tercerNivel: [] },
+                { id: 12, nombre: "Area Inspectoria 1", tercerNivel: [] },
+                { id: 13, nombre: "Area Inspectoria 2", tercerNivel: [] },
+                { id: 14, nombre: "Area Marketing", tercerNivel: [] },
+                { id: 15, nombre: "Area Operaciones", tercerNivel: [] },
+                { id: 16, nombre: "Area RR. HH.", tercerNivel: [] },
+                { id: 17, nombre: "Area Seguridad", tercerNivel: [] },
+                { id: 18, nombre: "Area Sistemas", tercerNivel: [] },
+                { id: 19, nombre: "Area Tecnica", tercerNivel: [] },
+                { id: 20, nombre: "Area Textil", tercerNivel: [] },
+                { id: 21, nombre: "Area Transportes", tercerNivel: [] },
+                { id: 22, nombre: "Boutiques", tercerNivel: [] },
+                { id: 23, nombre: "Deli Bakery ANCÓN", tercerNivel: [] },
+                { id: 24, nombre: "Deli Bakery CHILCA Km 88", tercerNivel: [] },
+                { id: 25, nombre: "Deli Bakery CHORRILLOS", tercerNivel: [] },
+                { id: 26, nombre: "Deli Bakery LA PUNTA", tercerNivel: [] },
+                { id: 27, nombre: "Deli Bakery NUEVO CAÑETE KM 167", tercerNivel: [] },
+                { id: 28, nombre: "Deli Bakery PASAMAYO", tercerNivel: [] },
+                { id: 29, nombre: "Deli Bakery SAN BARTOLO", tercerNivel: [] },
+                { id: 30, nombre: "Deli Bakery SAN ISIDRO", tercerNivel: [] },
+                { id: 31, nombre: "Deli Bakery SANTA ANITA (cerrado)", tercerNivel: [] },
+                { id: 32, nombre: "HOTEL INKA PATH", tercerNivel: [] },
+                { id: 33, nombre: "Hotel Puno", tercerNivel: [] },
+                { id: 34, nombre: "HOTEL WIMBLEDON.", tercerNivel: [] },
+                { id: 35, nombre: "Icom Attract", tercerNivel: [] },
+                { id: 36, nombre: "IMPRENTA PRINT GRAPH", tercerNivel: [] },
+                { id: 37, nombre: "LA BONNE VIE", tercerNivel: [] },
+                { id: 38, nombre: "Restaurante COLVILLE", tercerNivel: [] },
+                { id: 39, nombre: "Sala 2 de Mayo", tercerNivel: [] }
+            ]
+        },
+        {
+            id: 3,
+            nombre: "Análisis de Producción y Diferencias",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 4,
+            nombre: "APUESTAS DEPORTIVAS Y LOTERÍAS",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 5,
+            nombre: "Arrendamientos",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 6,
+            nombre: "Atencion Alertas Alert View",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 7,
+            nombre: "Auditorias",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 8,
+            nombre: "Avance de Obra",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 9,
+            nombre: "Billeteros",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 10,
+            nombre: "CCTV",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 11,
+            nombre: "CNT",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 12,
+            nombre: "Códigos Gerente de Operaciones",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 13,
+            nombre: "Control de clear",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 14,
+            nombre: "Convenciones",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 15,
+            nombre: "Ctas Ctes Proveedor MT",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 16,
+            nombre: "Cuadre de Gastos",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 17,
+            nombre: "CUADRE DIARIO - SALAS",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 18,
+            nombre: "Cuentas Corrientes",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 19,
+            nombre: "Decoraciones",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 20,
+            nombre: "DEUDAS POR COBRAR",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 21,
+            nombre: "Documentos de reapertura Fase 4",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 22,
+            nombre: "Documentos de Salas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 23,
+            nombre: "Faltantes",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 24,
+            nombre: "Finanzas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 25,
+            nombre: "Fotos o Videos",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 26,
+            nombre: "INDECI",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 27,
+            nombre: "Informes Clientes Incognitos",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 28,
+            nombre: "Informes Ejecutivos - Funcionarios",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 29,
+            nombre: "INLOG - Salas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 30,
+            nombre: "Inspectoría",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 31,
+            nombre: "Inventarios",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 32,
+            nombre: "Jurídico",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 33,
+            nombre: "Licencias y Contratos",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 34,
+            nombre: "Logística",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 35,
+            nombre: "M.A.",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 36,
+            nombre: "MAQUINAS DE PRODUCCIÓN MINERA",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 37,
+            nombre: "Maquinas Inoperativas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 38,
+            nombre: "Maquinas Off Line",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 39,
+            nombre: "Marketing",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 40,
+            nombre: "Mejores Clientes",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 41,
+            nombre: "Minería",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 42,
+            nombre: "MMT/ AMT",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 43,
+            nombre: "Negociaciones Locales",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 44,
+            nombre: "OCUPABILIDAD (Graficas y Estadísticas)",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 45,
+            nombre: "OFC",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 46,
+            nombre: "Órdenes de Compras y Contratos",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 47,
+            nombre: "Organización y Métodos / Capacitaciones",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 48,
+            nombre: "P. A.",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 49,
+            nombre: "Partidas Registrales",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 50,
+            nombre: "PGL",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 51,
+            nombre: "Planes Gerenciales",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 52,
+            nombre: "Presupuestos de Salas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 53,
+            nombre: "Procedimientos",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 54,
+            nombre: "Procesos Judiciales y Administrativos",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 55,
+            nombre: "Producción",
+            subMenus: [
+                { id: 1, nombre: "Avances Controller Alimentos y Bebidas", tercerNivel: [] },
+                { id: 2, nombre: "Almacén Técnico", tercerNivel: [] },
+                { id: 3, nombre: ".ALMACEN CENTRAL BOLIVAR", tercerNivel: [] },
+                { id: 4, nombre: ".ALMACEN CETICOS PAITA", tercerNivel: [] },
+                { id: 5, nombre: ".ALMACEN DB/ Texas-Chorrillos", tercerNivel: [] },
+                { id: 6, nombre: ".ALMACEN PUCUSANA 1", tercerNivel: [] },
+                { id: 7, nombre: ".ALMACEN PUCUSANA 2", tercerNivel: [] },
+                { id: 8, nombre: ".ALMACEN ZOFRA TACNA", tercerNivel: [] }
+            ]
+        },
+        {
+            id: 56,
+            nombre: "Producción Textil",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 57,
+            nombre: "Protocolos de Salas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 58,
+            nombre: "PROVEEDORES",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 59,
+            nombre: "Proveedores Maq Tragamonedas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 60,
+            nombre: "Proveedores MT en participación",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 61,
+            nombre: "R. D. AUTORITATIVAS",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 62,
+            nombre: "R.D. Salas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 63,
+            nombre: "R.J.I.",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 64,
+            nombre: "Recursos Humanos",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 65,
+            nombre: "Renovación de autorización en el Sistema Integral de Casinos",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 66,
+            nombre: "RETEC",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 67,
+            nombre: "Reuniones y Negociaciones",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 68,
+            nombre: "S.O.C",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 69,
+            nombre: "SAG",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 70,
+            nombre: "SAG Chequeras",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 71,
+            nombre: "Seccion Erronea",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 72,
+            nombre: "Seguros y Coberturas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 73,
+            nombre: "Siniestros y Reclamos de Seguros",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 74,
+            nombre: "Sistemas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 75,
+            nombre: "STARLIGHT",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 76,
+            nombre: "TERMOPLANOS",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 77,
+            nombre: "TRAMAS SUCTR",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 78,
+            nombre: "Transportes",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 79,
+            nombre: "Ventas",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 80,
+            nombre: "Villas de Bouganville ICA",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        },
+        {
+            id: 81,
+            nombre: "Villas de Bouganville REQUE",
+            subMenus: [
+                {
+                    id: 1,
+                    nombre: "Prueba",
+                    tercerNivel: []
+                }
+            ]
+        }
+    ]

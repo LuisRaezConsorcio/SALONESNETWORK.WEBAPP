@@ -7,17 +7,17 @@ export default [
             import('./home/home.component').then((m) => m.HomeComponent),
         children: [
             {
-                path: 'News',
+                path: 'Noticias',
                 loadComponent: () =>
                     import('./news/news.component').then((m) => m.NewsComponent),
             },
             {
-                path: 'Subjects',
+                path: 'Asuntos',
                 loadComponent: () =>
                     import('./subject/subject.component').then((m) => m.SubjectComponent),
                 children:[
                     {
-                        path: 'Messages',
+                        path: 'Mensajes',
                         loadComponent: () =>
                             import('./messages/messages.component').then((m) => m.MessagesComponent),
                     },

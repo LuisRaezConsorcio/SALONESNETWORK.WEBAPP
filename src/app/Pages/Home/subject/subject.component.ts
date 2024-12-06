@@ -31,7 +31,7 @@ export class SubjectComponent implements OnInit{
   // Método para comprobar si estamos en la ruta 'Messages'
   private checkIfMessagesRoute() {
     const currentRoute = this.activatedRoute.snapshot.firstChild?.routeConfig?.path;
-    this.isMessagesRoute = currentRoute === 'Messages';
+    this.isMessagesRoute = currentRoute === 'Mensajes';
   }
 
 }

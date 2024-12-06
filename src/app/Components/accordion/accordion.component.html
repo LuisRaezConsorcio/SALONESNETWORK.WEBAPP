@@ -1,90 +1,45 @@
-<div class="flex w-full flex-col sm:flex-row space-y-2">
+<div class="flex w-full max-h-[100%] flex-col sm:flex-row space-y-2">
 
-    <div class=" sm:w-1/4 card rounded-box  min-h-full flex-grow justify-items-center">
-        <ul class="menu bg-base-200 rounded-box w-full">
-            <li *ngFor="let item of menu"> <a (click)="toggleMenu(item)">{{ item.nombre }}</a></li>
-        </ul>
+    <div class="grid grid-cols-1 h-full max-h-[calc(100dvh-18rem)] min-w-[300px] sm:min-w-[380px] sm:grid-cols-2 lg:grid-cols-3 gap-1 py-2
+    overflow-y-scroll">
+    <!-- grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] p-4 gap-4"> -->
+        <div *ngFor="let item of menu; let i = index"
+            class="flex flex-col items-center bg-gray-200 rounded shadow h-[58px] sm:h-[62px] min-w-[174px]">
+            <!-- Botón dentro del div secundario -->
+            <button (click)="toggleMenu(item)"
+                class=" btn btn-primary h-full w-full text-white font-bold py-2 px-2 rounded-lg text-xs">
+                {{ item.id }}: {{ item.nombre }}
+            </button>
+        </div>
     </div>
+
     <div class="divider sm:divider-horizontal"></div>
 
-    <div class="sm:w-1/4 card rounded-box grid min-h-full flex-grow place-items-center" *ngIf="selectedMenu">
-        <div *ngFor="let subMenu of selectedMenu.subMenus" class="collapse collapse-arrow bg-base-200 m-1">
-            <input type="checkbox" />
-            <div class="collapse-title text-xl font-medium">
+
+    <div class="min-w-[300px] sm:min-w-[165px] rounded-box overflow-x-hidden overflow-scroll max-h-[calc(100dvh-18rem)] flex-grow place-items-center"
+        *ngIf="selectedMenu">
+        <div *ngFor="let subMenu of selectedMenu.subMenus" class="collapse collapse-arrow bg-base-200 my-1">
+            <input type="radio" name="my-accordion-2" checked="checked"/>
+            <div class="collapse-title text-sm font-medium">
                 {{ subMenu.nombre }}
             </div>
             <div class="collapse-content">
                 <!-- Tercer Nivel -->
                 <ul *ngIf="subMenu.tercerNivel.length > 0" class="menu bg-base-200 rounded-box">
                     <li *ngFor="let option of subMenu.tercerNivel">
-                        <a [routerLink]="['Messages']">
+                        <a [routerLink]="['Mensajes']">
                             <span class="font-bold hidden">{{ option.id }}</span>
                             <br />
-                            <span class="font-bold">{{ option.nombre }}</span> 
+                            <span class="font-bold">{{ option.nombre }}</span>
                         </a>
                     </li>
                 </ul>
                 <!-- Botón Ingresar -->
                 <p *ngIf="subMenu.tercerNivel.length === 0">
-                    <a class="btn btn-primary" [routerLink]="['Messages']" >Ingresar</a>
+                    <a class="btn btn-primary h-10 w-40" [routerLink]="['Mensajes']"><i
+                            class="fa-solid fa-up-right-from-square"></i></a>
                 </p>
             </div>
         </div>
     </div>
 </div>
-
-
-<!-- <div class="sm:w-1/4 card rounded-box grid min-h-full flex-grow place-items-center">
-    <div class="collapse collapse-arrow bg-base-200 m-1" *ngFor="let item of menu">
-        <input type="radio" name="accordion" [checked]="selectedMenu === item.id" />
-        <div class="collapse-title text-xl font-medium">
-            Sección: {{ item.nombre }}
-        </div>
-        <div class="collapse-content">
-            <p>{{ item.descripcion }}</p>
-            <ul *ngIf="item.subMenus.length > 0" class="menu lg:menu-horizontal bg-base-200 rounded-box">
-                <details open>
-                    <summary>Submenús</summary>
-                    <ul>
-                        <li *ngFor="let sub of item.subMenus">
-                            <a>{{ sub.nombre }}</a>
-                        </li>
-                    </ul>
-                </details>
-            </ul>
-        </div>
-    </div>
-</div>
-</div> -->
-<!-- 
-    <div class=" sm:w-1/4 card rounded-box grid min-h-full flex-grow place-items-center">
-        
-        
-        <div class="collapse collapse-arrow bg-base-200 m-1">
-            <input type="radio" name="my-accordion-2" />
-            <div class="collapse-title text-xl font-medium">Seccion: Marketing</div>
-            <div class="collapse-content">
-                <p>hello</p>
-            </div>
-        </div>
-        <div class="collapse collapse-arrow bg-base-200 m-1">
-            <input type="radio" name="my-accordion-2" checked="checked" />
-            <div class="collapse-title text-xl font-medium">Seccion: Avance de Obra</div>
-            <div class="collapse-content">
-                
-
-                <ul class="menu lg:menu-horizontal bg-base-200 rounded-box">
-                    <details open>
-                        <summary>Yate</summary>
-                        <ul>
-                            <li><a>Yate 1</a></li>
-                            <li><a>Yate 2</a></li>
-                            <li><a>Yate 3</a></li>
-                        </ul>
-                    </details>
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</div> -->

@@ -2,23 +2,10 @@
 
 <div class="max-w-5xl min-w-[300px] mx-auto bg-white rounded-lg shadow-md">
     <div class="w-full max-w-4xl mx-auto bg-white rounded-lg p-4">
-        <!-- Input para texto -->
-        <!-- <ckeditor *ngIf="( Editor && config )" data="<p>Hello, world!</p>" [editor]="Editor" [config]="config">
-        </ckeditor> -->
-
-
-
+        
         <div #editorElement>
             <ckeditor [editor]="Editor" [config]="config" *ngIf="Editor && config" />
         </div>
-
-
-        <!-- <ckeditor [(ngModel)]="postContent" [editor]="Editor" [config]="editorConfig" class="border rounded-lg">
-        </ckeditor> -->
-
-        <!-- <textarea [(ngModel)]="postContent" placeholder="¿Qué estás pensando?"
-            class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            rows="4"></textarea> -->
 
         <!-- Etiquetar personas -->
         <div class="my-2">
@@ -38,15 +25,22 @@
         <!-- Subir archivos -->
         <div class="my-2">
             <label class="block text-sm font-medium text-gray-700">Sube archivos:</label>
-            <input type="file" (change)="onFileSelected($event)" multiple accept=".jpg,.jpeg,.png,.pdf,.xls,.xlsx,.docx,.doc,.txt"
+            <input type="file" (change)="onFileSelected($event)" multiple
+                accept=".jpg,.jpeg,.png,.pdf,.xls,.xlsx,.docx,.doc,.txt"
                 class="mt-1 block w-full text-sm border rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
             <ul class="mt-2">
-                <li *ngFor="let file of selectedFiles" class="flex items-center text-sm text-gray-600 mb-2">
+                <li *ngFor="let file of selectedFiles; let i = index" class="flex items-center text-sm text-gray-600 mb-2">
                     <span class="mr-2">
                         <!-- Muestra el ícono dependiendo del tipo de archivo -->
                         <i [ngClass]="getFileIcon(file)" class="text-xl"></i>
                     </span>
                     <span>{{ file.name }}</span>
+                    <button 
+                (click)="removeFile(i)" 
+                class="ml-2 text-red-500 hover:text-red-700 focus:outline-none"
+            >
+            <i class="fas fa-trash"></i>
+            </button>
                 </li>
             </ul>
         </div>
@@ -113,14 +107,25 @@
 
 
 
-<div class="w-full max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-4 my-4">
+<div class="max-w-5xl min-w-[300px] mx-auto bg-white shadow-lg rounded-lg py-4 px-8 my-4">
     <!-- Cabecera del post -->
     <div class="flex items-center">
         <img [src]="postData.user.profilePicture || 'assets/default-avatar.png'" alt="Avatar"
             class="w-12 h-12 rounded-full" />
-        <div class="ml-3">
-            <h2 class="font-bold text-lg">{{ postData.user.name }}</h2>
+        <div class="ml-3 w-full">
+            <div class="flex justify-between">
+                <h2 class="font-bold text-lg">{{ postData.user.name }} </h2>
+                <h2>Nro Noticia 177024</h2>
+
+            </div>
+            <div class="flex justify-between">
+            <p>Inspectora</p>
             <p class="text-sm text-gray-500">{{ postData.timestamp | date:'medium' }}</p>
+
+            </div>
+
+            <p>Inspectoria</p>
+
         </div>
     </div>
 
@@ -176,8 +181,7 @@
             <!-- Lista de respuestas -->
             <div class="ml-12 mt-2 border-l-2 border-gray-300 pl-4">
                 <div *ngFor="let reply of comment.replies" class="flex items-start relative">
-                    <img src='assets/default-avatar.png' alt="Avatar"
-                        class="w-8 h-8 rounded-full" />
+                    <img src='assets/default-avatar.png' alt="Avatar" class="w-8 h-8 rounded-full" />
                     <div class="ml-3 bg-gray-50 p-3 rounded-lg">
                         <h5 class="font-semibold text-sm"></h5>
                         <p class="text-sm" [innerHTML]=""></p>
