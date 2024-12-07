@@ -1,0 +1,2 @@
+.breadcrumb { display: flex; gap: 8px; }
+    .breadcrumb-link { text-decoration: none; color: #007BFF; }

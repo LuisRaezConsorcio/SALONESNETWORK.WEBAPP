@@ -13,6 +13,8 @@ export const routes: Routes = [
     },
     {
         path: 'Home',
+        data: { breadcrumb: 'Home' },
+
         loadChildren: () =>
             import('./Pages/Home/home.router').then((m) => m.default)
     }

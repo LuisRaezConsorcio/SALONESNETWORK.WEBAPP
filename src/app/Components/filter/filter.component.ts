@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { GLOBAL_IMPORTS } from '../../global-imports';
 
 @Component({
@@ -8,6 +8,12 @@ import { GLOBAL_IMPORTS } from '../../global-imports';
   styleUrl: './filter.component.css'
 })
 export class FilterComponent {
+
+  @Input() label: string = ''; // Texto de la etiqueta
+  @Input() id: string = ''; // Identificador único
+  @Input() type: string = 'text'; // Tipo de input
+  @Input() model: any; // Modelo para Two-way Binding
+  @Input() disabled: boolean = false; // Deshabilitar input
   
   contactos = [
     { id: 1, nombreCompleto: 'Juan Pérez', telefono: '+51 123 456 789', correo: 'juan.perez@ejemplo.com', cargo: 'Gerente General' },

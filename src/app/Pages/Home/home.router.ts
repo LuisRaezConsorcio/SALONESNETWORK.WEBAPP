@@ -1,4 +1,4 @@
-import {Routes} from '@angular/router'
+import { Routes } from '@angular/router'
 
 export default [
     {
@@ -8,16 +8,20 @@ export default [
         children: [
             {
                 path: 'Noticias',
+                data: { breadcrumb: 'Noticias' },
                 loadComponent: () =>
                     import('./news/news.component').then((m) => m.NewsComponent),
             },
             {
                 path: 'Asuntos',
+                data: { breadcrumb: 'Asuntos' },
                 loadComponent: () =>
                     import('./subject/subject.component').then((m) => m.SubjectComponent),
-                children:[
+                children: [
                     {
                         path: 'Mensajes',
+                        data: { breadcrumb: 'Mensajes' },
+
                         loadComponent: () =>
                             import('./messages/messages.component').then((m) => m.MessagesComponent),
                     },
@@ -25,5 +29,5 @@ export default [
             },
         ]
     },
-    
+
 ] as Routes;

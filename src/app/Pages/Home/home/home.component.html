@@ -1,13 +1,15 @@
 <app-navbar></app-navbar>
 <div class="drawer lg:drawer-open min-h-[calc(100vh-4.1rem)]">
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content flex flex-col p-2.5 h-[calc(100vh-4.1rem)] "
+  <div class="drawer-content flex flex-col h-[calc(100vh-4.1rem)]"
+  >
+  <div class="sticky top-0 z-50 bg-white">
+    <app-breadcrumbs></app-breadcrumbs>
+    <app-filter></app-filter>
+  </div>
   
-  [class.overflow-y-auto]="!ocultarScroll"
-  [class.overflow-y-hidden]="ocultarScroll">
-    <main role="main ">
-      <app-filter></app-filter>
-      <br>
+    <main role="main " class="mx-2.5 mt-2">
+      
       <router-outlet></router-outlet>
     </main>
   </div>
@@ -17,8 +19,8 @@
 
 
       <li>
-        <div id="menuReportes" class="btm-nav bottom-[initial] relative bg-transparent">
-          <a [routerLink]="['Noticias']" routerLinkActive="active-link" id="@itemmenu.Id">
+        <div id="menuReportes" class="btm-nav bottom-[initial] relative bg-transparent" routerLinkActive="active">
+          <a [routerLink]="['Noticias']" > 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper"
               viewBox="0 0 16 16">
               <path
@@ -30,9 +32,9 @@
           </a>
         </div>
       </li>
-      <li>
-        <div id="menuReportes" class="btm-nav bottom-[initial] relative bg-transparent">
-          <a [routerLink]="['Asuntos']" routerLinkActive="active-link" id="@itemmenu.Id">
+      <li >
+        <div id="menuReportes" class="btm-nav bottom-[initial] relative bg-transparent" routerLinkActive="active">
+          <a [routerLink]="['Asuntos']">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-clipboard-data" viewBox="0 0 16 16">
               <path

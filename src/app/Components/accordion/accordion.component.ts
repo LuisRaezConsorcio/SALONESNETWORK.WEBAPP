@@ -21,7 +21,7 @@ export class AccordionComponent implements OnInit {
           { id: 2, nombre: "Consolidado Agronomía", tercerNivel: [] },
           { id: 3, nombre: "Forestal", tercerNivel: [] },
           { id: 4, nombre: "Fundo Don Edmundo", tercerNivel: [] },
-          { id: 5, nombre: "Fundo Poroto - Trujillo", tercerNivel: [] },
+          { id: 5, nombre: "Fundo Poroto - Trujillo", tercerNivel: [{ id: 1, nombre: "Codo del Pozuzo"},{ id: 2, nombre: "Codo del Pozuzo"}] },
           { id: 6, nombre: "Otros Cultivos", tercerNivel: [] },
           { id: 7, nombre: "PLANTA DE DESHIDRATADOS", tercerNivel: [] },
           { id: 8, nombre: "Proyecto agroindustrial sobre cacao", tercerNivel: [] },

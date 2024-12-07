@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,12 +43,3 @@
 	min-width: 795px;
 	max-width: 795px;
 }
-
-.claseDiv1 {
-	overflow-y: hidden;
-  }
-
-  .claseDiv2 {
-	overflow-y: auto;
-
-  }

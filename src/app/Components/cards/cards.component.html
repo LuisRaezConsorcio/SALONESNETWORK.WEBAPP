@@ -1,8 +1,8 @@
-<h2>{{titulo}}</h2>
+  
 
 <div class="max-w-5xl min-w-[300px] mx-auto bg-white rounded-lg shadow-md">
     <div class="w-full max-w-4xl mx-auto bg-white rounded-lg p-4">
-        
+
         <div #editorElement>
             <ckeditor [editor]="Editor" [config]="config" *ngIf="Editor && config" />
         </div>
@@ -29,18 +29,16 @@
                 accept=".jpg,.jpeg,.png,.pdf,.xls,.xlsx,.docx,.doc,.txt"
                 class="mt-1 block w-full text-sm border rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
             <ul class="mt-2">
-                <li *ngFor="let file of selectedFiles; let i = index" class="flex items-center text-sm text-gray-600 mb-2">
+                <li *ngFor="let file of selectedFiles; let i = index"
+                    class="flex items-center text-sm text-gray-600 mb-2">
                     <span class="mr-2">
                         <!-- Muestra el ícono dependiendo del tipo de archivo -->
                         <i [ngClass]="getFileIcon(file)" class="text-xl"></i>
                     </span>
                     <span>{{ file.name }}</span>
-                    <button 
-                (click)="removeFile(i)" 
-                class="ml-2 text-red-500 hover:text-red-700 focus:outline-none"
-            >
-            <i class="fas fa-trash"></i>
-            </button>
+                    <button (click)="removeFile(i)" class="ml-2 text-red-500 hover:text-red-700 focus:outline-none">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </li>
             </ul>
         </div>
@@ -52,60 +50,8 @@
         </button>
     </div>
 </div>
-<!-- <div class="max-w-3xl mx-auto bg-white p-4 rounded-lg shadow-md">
-    <div class="flex items-center space-x-3 mb-4">
-        <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Avatar" class="w-12 h-12 rounded-full">
-        <div class="flex-1">
-            <input type="text" placeholder="Título"
-                class="w-full p-2 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                readonly>
-        </div>
-    </div>
 
-    <textarea placeholder="Redacta el Mensaje..."
-        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-        rows="4"></textarea>
-
-    <div class="flex justify-between items-center mt-4 text-gray-500">
-        <div class="flex items-center space-x-6">
-            <button class="flex items-center space-x-2 hover:text-blue-500">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    class="w-5 h-5">
-                    <path d="M4 4h16v16H4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                </svg>
-                <span>Foto/Video</span>
-            </button>
-            <button class="flex items-center space-x-2 hover:text-blue-500">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    class="w-5 h-5">
-                    <path d="M12 7v10m5-5H7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                </svg>
-                <span>Emoción</span>
-            </button>
-        </div>
-
-        <button
-            class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none">Publicar</button>
-    </div>
-</div> -->
 <br>
-<!-- <div class="w-full max-w-4xl bg-base-200 mx-auto p-4 rounded-lg shadow-md">
-    <div class="hero-content flex-col lg:flex-row-reverse">
-        <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-            class="max-w-sm rounded-lg shadow-2xl" />
-        <div>
-            <h1 class="text-5xl font-bold">Box Office News!</h1>
-            <p class="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                quasi. In deleniti eaque aut repudiandae et a id nisi.
-            </p>
-            <button class="btn btn-primary">Get Started</button>
-        </div>
-    </div>
-</div> -->
-
-
-
 
 <div class="max-w-5xl min-w-[300px] mx-auto bg-white shadow-lg rounded-lg py-4 px-8 my-4">
     <!-- Cabecera del post -->
@@ -119,8 +65,8 @@
 
             </div>
             <div class="flex justify-between">
-            <p>Inspectora</p>
-            <p class="text-sm text-gray-500">{{ postData.timestamp | date:'medium' }}</p>
+                <p>Inspectora</p>
+                <p class="text-sm text-gray-500">{{ postData.timestamp | date:'medium' }}</p>
 
             </div>
 

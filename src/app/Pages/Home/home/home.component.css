@@ -1,7 +1,4 @@
-.overflow-hidden {
-    overflow-y: hidden;
-  }
-  
-  .overflow-auto {
-    overflow-y: auto;
-  }
+.active {
+  color: white !important;
+  background-color: #ab414170 !important
+}
