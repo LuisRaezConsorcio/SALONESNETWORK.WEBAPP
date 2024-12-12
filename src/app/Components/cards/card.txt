@@ -1,0 +1,218 @@
+<!--   
+
+<div class="max-w-5xl min-w-[300px] mx-auto bg-white rounded-lg shadow-md">
+    <div class="w-full max-w-4xl mx-auto bg-white rounded-lg p-4">
+
+        <div #editorElement>
+            <ckeditor [editor]="Editor" [config]="config" *ngIf="Editor && config" />
+        </div>
+
+        <div class="my-2">
+            <input [(ngModel)]="tagInput" placeholder="Etiqueta personas"
+                class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" />
+            <div class="flex flex-wrap mt-2">
+                <span *ngFor="let tag of tags"
+                    class="bg-blue-500 text-white rounded-full px-3 py-1 text-sm mr-2 mb-2 flex items-center">
+                    {{ tag }}
+                    <button (click)="removeTag(tag)" class="ml-2 text-white hover:text-gray-200 focus:outline-none">
+                        ✕
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <div class="my-2">
+            <label class="block text-sm font-medium text-gray-700">Sube archivos:</label>
+            <input type="file" (change)="onFileSelected($event)" multiple
+                accept=".jpg,.jpeg,.png,.pdf,.xls,.xlsx,.docx,.doc,.txt"
+                class="mt-1 block w-full text-sm border rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+            <ul class="mt-2">
+                <li *ngFor="let file of selectedFiles; let i = index"
+                    class="flex items-center text-sm text-gray-600 mb-2">
+                    <span class="mr-2">
+                        <i [ngClass]="getFileIcon(file)" class="text-xl"></i>
+                    </span>
+                    <span>{{ file.name }}</span>
+                    <button (click)="removeFile(i)" class="ml-2 text-red-500 hover:text-red-700 focus:outline-none">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <button (click)="submitPost()"
+            class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            Publicar
+        </button>
+    </div>
+</div>
+
+<br>
+
+<div class="max-w-5xl min-w-[300px] mx-auto bg-white shadow-lg rounded-lg py-4 px-8 my-4">
+   
+    <div class="flex items-center">
+        <img [src]="postData.user.profilePicture || 'assets/default-avatar.png'" alt="Avatar"
+            class="w-12 h-12 rounded-full" />
+        <div class="ml-3 w-full">
+            <div class="flex justify-between">
+                <h2 class="font-bold text-lg">{{ postData.user.name }} </h2>
+                <h2>Nro Noticia 177024</h2>
+
+            </div>
+            <div class="flex justify-between">
+                <p>Inspectora</p>
+                <p class="text-sm text-gray-500">{{ postData.timestamp | date:'medium' }}</p>
+
+            </div>
+
+            <p>Inspectoria</p>
+
+        </div>
+    </div>
+
+    <div class="my-4">
+        <div class="prose" [innerHTML]="postData.content"></div>
+
+        <img *ngIf="postData.image" [src]="postData.image" alt="Post image" class="w-full rounded-lg mt-4" />
+    </div>
+
+    <div class="mt-4">
+        <h3 class="font-semibold mb-2">Comentarios</h3>
+
+        <div class="flex items-start mb-4">
+            <img src="assets/images/logo-solo-sin-fondo.png" alt="Tu avatar" class="w-10 h-10 rounded-full" />
+            <textarea [(ngModel)]="newComment" placeholder="Escribe un comentario..."
+                class="w-full ml-3 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            <button (click)="addComment()" class="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                Comentar
+            </button>
+        </div>
+
+        <div *ngFor="let comment of postData.comments" class="mb-4">
+            <div class="flex items-start">
+                <img [src]="comment.user.profilePicture || 'assets/default-avatar.png'" alt="Avatar"
+                    class="w-10 h-10 rounded-full" />
+                <div class="ml-3 w-full">
+                    <div class="bg-gray-100 p-3 rounded-lg">
+                        <h4 class="font-semibold">{{ comment.user.name }}</h4>
+                        <p class="text-sm" [innerHTML]="comment.content"></p>
+                    </div>
+                    <button (click)="toggleReplyBox(comment)" class="text-sm text-blue-500 mt-1 hover:underline">
+                        Responder
+                    </button>
+                </div>
+            </div>
+
+            <div *ngIf="comment.showReplyBox" class="ml-12 mt-2">
+                <textarea [(ngModel)]="comment.reply" placeholder="Escribe una respuesta..."
+                    class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                <button (click)="addReply(comment)"
+                    class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                    Responder
+                </button>
+            </div>
+
+            <div class="ml-12 mt-2 border-l-2 border-gray-300 pl-4">
+                <div *ngFor="let reply of comment.replies" class="flex items-start relative">
+                    <img src='assets/default-avatar.png' alt="Avatar" class="w-8 h-8 rounded-full" />
+                    <div class="ml-3 bg-gray-50 p-3 rounded-lg">
+                        <h5 class="font-semibold text-sm"></h5>
+                        <p class="text-sm" [innerHTML]=""></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="card bg-white p-6 rounded-lg shadow-lg">
+    <h3 class="text-xl font-semibold">{{ post.title }}</h3>
+    <p class="text-gray-600">Publicado por: {{ post.person?.name }}</p>
+
+    <!-- Mostrar el contenido del post con formato -->
+    <pre class="mt-2">{{ post.content }}</pre>
+
+    <!-- Contenedor de botones alineados a la derecha -->
+    <div class="flex justify-end space-x-4 mt-4">
+        <button (click)="toggleReply()"
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
+            Responder
+        </button><!--toggleFollowUpSection() -->
+        <button (click)="toggleFollow()"
+            class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300">
+            Seguimiento
+        </button>
+    </div>
+
+    <!-- Mostrar seguimiento si está expandido -->
+    <!-- <div *ngIf="true" class="mt-4 bg-gray-100 p-4 rounded-lg">
+        <h4 class="font-semibold">Seguimiento de la noticia: {{ post.id }}</h4>
+        <pre>Numero de Seguimiento: {{post.followUp?.idFollow}}</pre>
+        <pre>seguimiento realizado por:</pre>
+        <pre>Nombre: {{post.followUp?.person?.name}}</pre>
+        <pre>Cargo: {{post.followUp?.person?.position}}</pre>
+        <pre>Area: {{post.followUp?.person?.area}}</pre>
+        <pre>Contenido del seguimiento: {{ post.followUp?.content }}</pre>
+    </div> -->
+
+    <div *ngIf="true"  class="join join-vertical w-full">
+        <div class="collapse collapse-arrow join-item border-base-300 border">
+            <input type="checkbox" name="my-accordion-4" />
+            <div class="collapse-title text-xl font-medium">
+                <h4 class="font-semibold">Seguimiento de la noticia: {{ post.id }}</h4>
+                <pre>Numero de Seguimiento: {{post.followUp?.idFollow}}</pre>
+
+            </div>
+            <div class="collapse-content">
+                
+                <pre>seguimiento realizado por:</pre>
+                <pre>Nombre: {{post.followUp?.person?.name}}</pre>
+                <pre>Cargo: {{post.followUp?.person?.position}}</pre>
+                <pre>Area: {{post.followUp?.person?.area}}</pre>
+                <pre>Contenido del seguimiento: {{ post.followUp?.content }}</pre>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Mostrar respuestas (otros posts) relacionados -->
+    <div *ngFor="let reply of post.replies" class="mt-6">
+        <div class="reply bg-gray-50 p-4 rounded-lg shadow-sm">
+            <h5 class="text-lg font-semibold">{{ reply.title }}</h5>
+            <pre>{{ reply.content }}</pre>
+            <p class="text-gray-600">Publicado por: {{ reply.person }}</p>
+
+            <!-- Mostrar la copia del mensaje al que se está respondiendo -->
+            <div *ngIf="reply.replyTo" class="mt-4 bg-gray-200 p-4 rounded-md">
+                <h6 class="font-semibold">Mensaje original al que se responde:</h6>
+                <pre>{{ reply.replyTo.content }}</pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulario para crear una nueva respuesta -->
+    <div *ngIf="openReply" class="mt-4">
+        <textarea [(ngModel)]="replyContent" placeholder="Escribe tu respuesta..."
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+            rows="4"></textarea>
+        <button (click)="sendReply()"
+            class="mt-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">
+            Enviar Respuesta
+        </button>
+    </div>
+
+    <!-- Formulario para crear un seguimiento -->
+    <div *ngIf="openFollow" class="mt-4">
+        <textarea [(ngModel)]="replyContent" placeholder="Escribe tu seguimiento..."
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+            rows="4"></textarea>
+        <button (click)="sendFollow()"
+            class="mt-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">
+            Enviar Seguimiento
+        </button>
+    </div>
+</div>
+
+
+<br>

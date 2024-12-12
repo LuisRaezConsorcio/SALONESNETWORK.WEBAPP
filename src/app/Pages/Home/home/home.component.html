@@ -1,26 +1,25 @@
 <app-navbar></app-navbar>
 <div class="drawer lg:drawer-open min-h-[calc(100vh-4.1rem)]">
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content flex flex-col h-[calc(100vh-4.1rem)]"
-  >
-  <div class="sticky top-0 z-50 bg-white">
-    <app-breadcrumbs></app-breadcrumbs>
-    <app-filter></app-filter>
-  </div>
-  
-    <main role="main " class="mx-2.5 mt-2">
-      
+  <div class="drawer-content flex flex-col h-[calc(100vh-4.1rem)]">
+    <div class="fixed min-w-[320px] w-full lg:start-24 top-16 z-50 bg-white">
+      <app-breadcrumbs></app-breadcrumbs>
+      <app-filter></app-filter>
+    </div>
+
+    <main role="main" class="mx-2.5 mt-2 w-[95%] lg:w-[89%] relative top-72 sm:top-60 md:top-44 lg:start-24 z-30 justify-items-center">
+
       <router-outlet></router-outlet>
     </main>
   </div>
-  <div class="drawer-side fixed inset-0 z-50">
+  <div class="drawer-side !fixed top-16  z-50">
     <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
     <ul class="menu bg-base-200 min-h-full">
 
 
       <li>
         <div id="menuReportes" class="btm-nav bottom-[initial] relative bg-transparent" routerLinkActive="active">
-          <a [routerLink]="['Noticias']" > 
+          <a [routerLink]="['Noticias']">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper"
               viewBox="0 0 16 16">
               <path
@@ -32,7 +31,7 @@
           </a>
         </div>
       </li>
-      <li >
+      <li>
         <div id="menuReportes" class="btm-nav bottom-[initial] relative bg-transparent" routerLinkActive="active">
           <a [routerLink]="['Asuntos']">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

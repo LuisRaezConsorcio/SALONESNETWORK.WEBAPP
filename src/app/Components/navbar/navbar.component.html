@@ -1,14 +1,16 @@
-<div class="navbar bg-primary bg-base-100 overflow-x-hidden overflow-y-hidden">
+<div class="navbar bg-primary bg-base-100 overflow-x-hidden fixed z-50 overflow-y-hidden">
   <div class="flex-none lg:hidden">
     <label for="my-drawer-2" aria-label="open sidebar" class="btn btn-square btn-ghost text-white">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-6 w-6 stroke-current">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        class="inline-block h-6 w-6 stroke-current">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
         </path>
       </svg>
     </label>
   </div>
   <div class="flex-1">
-    <div class="sm:flex lg:pl-5 justify-between items-center hidden dark:border-white dark:text-gray-300 font-semibold [&amp;>div]:ml-7 [&amp;>h2]:mx-7">
+    <div
+      class="sm:flex lg:pl-5 justify-between items-center hidden dark:border-white dark:text-gray-300 font-semibold [&amp;>div]:ml-7 [&amp;>h2]:mx-7">
       <div class="bg-black/30 w-[2.5rem] p-1 px-2 py-1 rounded-full">
         <a [routerLink]="['']">
           <img alt="logo-mutzi" src="assets/images/logo-solo-sin-fondo.png">
@@ -18,21 +20,38 @@
     </div>
   </div>
   <div class="flex-none gap-2">
+    <div class="indicator">
+      <span class="indicator-item badge badge-secondary bg-red-300">99+</span>
+      <button class="btn btn-primary"><i class="fa-regular fa-bell"></i></button>
+    </div>
     <span class="text-white text-sm font-bold uppercase ">
       Usuario Conectado
     </span>
-    <div class="dropdown dropdown-end ">
+    <div class="dropdown dropdown-end z-40">
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle text-white avatar ">
         <div class="rounded-full ">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle"
+            viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+            <path fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
           </svg>
 
         </div>
       </div>
       <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li>
+          <a [routerLink]="['/Login']">Cerrar sesión</a>
+        </li>
+        <li>
+          <a [routerLink]="['/Login']">Cerrar sesión</a>
+        </li><li>
+          <a [routerLink]="['/Login']">Cerrar sesión</a>
+        </li><li>
+          <a [routerLink]="['/Login']">Cerrar sesión</a>
+        </li><li>
+          <a [routerLink]="['/Login']">Cerrar sesión</a>
+        </li><li>
           <a [routerLink]="['/Login']">Cerrar sesión</a>
         </li>
       </ul>

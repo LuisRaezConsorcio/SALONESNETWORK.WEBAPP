@@ -41,8 +41,6 @@ export class HomeComponent implements OnInit{
 
     const ruta = rutaActual.routeConfig?.path;
 
-    console.log('Ruta actual:', ruta); // Depuración
-
     if (ruta === 'Asuntos') {
       this.ocultarScroll = true; // Activa overflow-y: hidden
     } else {

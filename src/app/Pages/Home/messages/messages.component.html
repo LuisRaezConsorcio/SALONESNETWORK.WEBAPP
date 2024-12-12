@@ -1,7 +1,9 @@
-
-<br>    
-<div class="flex h-full">
-    <div class="w-full">
-        <app-cards></app-cards>
-    </div>
+<div class="news-feed">
+  <div *ngFor="let post of posts">
+    <app-cards
+      [post]="post"
+      (addReply)="addReply(post.id, $event)"
+      (addFollow)="addFollowToPost(post.id, $event)"
+    ></app-cards>
+  </div>
 </div>

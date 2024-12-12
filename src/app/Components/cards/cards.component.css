@@ -12,3 +12,40 @@
     background-color: #f4f4f4;
     text-align: left;
   }
+  .post-content, .reply-content, .follow-up-content {
+    white-space: pre-line;
+    /* Esto hará que los saltos de línea \n sean visibles, pero no las tabulaciones */
+  }
+  
+  .card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+  }
+  
+  .reply {
+    background-color: #f9fafb;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .follow-up-content {
+    background-color: #f0f4f8;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+
+  .follow-up {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.follow-up.reply {
+    background-color: #f0f4f8;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-left: 3px solid #d1d5db;
+}
+  
