@@ -10,12 +10,17 @@ export interface FollowUp {
 
 export interface Post {
   id: number;
-  title: string;
-  content: string;
   person: Person;
+  subject:boolean;
+  seccion:number;
+  pais:Pais;
+  subseccion1:number;
+  subseccion2:number;
+  content: string;
   followUps: FollowUp[]; // Lista de seguimientos
   replyTo: Post | null; // Si es una respuesta, tendrá el post al que responde
   replies: Post[]; // Respuestas al post
+  createdAt: Date;
 }
 
 export interface Person {
@@ -25,4 +30,9 @@ export interface Person {
   area: string;
   numero: string;
   correo: string;
+}
+
+export interface Pais {
+  id: number;
+  name: string;
 }

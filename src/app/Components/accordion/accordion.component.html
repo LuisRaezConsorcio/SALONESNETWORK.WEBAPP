@@ -18,6 +18,12 @@
 
     <div class="min-w-[300px] sm:min-w-[165px] rounded-box overflow-x-hidden overflow-y-scroll max-h-[calc(100dvh-19rem)] flex-grow place-items-center"
         *ngIf="selectedMenu">
+        <div class="dropdown">
+            <div tabindex="0" role="button" class="btn m-1">Pais</div>
+            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+              <li><a>Peru</a></li>
+            </ul>
+          </div>
         <ng-container *ngFor="let subMenu of selectedMenu.subMenus">
             <!-- Si tiene tercer nivel, se muestra como un acordeón -->
             <div *ngIf="subMenu.tercerNivel.length > 0" class="collapse collapse-arrow bg-base-200 my-1">

@@ -34,5 +34,7 @@ export class BreadcrumbsComponent implements OnInit {
   private updateBreadcrumbs(): void {
     // Construir breadcrumbs desde la raíz
     this.breadcrumbs = this.breadcrumbService.buildBreadcrumb(this.activatedRoute.root.snapshot);
+    console.log(this.breadcrumbs)
+
   }
 }

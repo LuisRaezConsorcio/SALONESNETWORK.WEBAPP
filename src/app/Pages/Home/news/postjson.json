@@ -1,64 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { GLOBAL_IMPORTS } from '../../../global-imports';
-import { CardsComponent } from '../../../Components/cards/cards.component';
-import { FollowUp, Post } from './../../../Interfaces/Post.interface'; // Ajusta la ruta según sea necesario
-import { PostsComponent } from '../../../Components/posts/posts.component';
-import { SharedStateService } from '../../../Services/shared-state.service';
-
-
-@Component({
-  selector: 'app-news',
-  imports: [GLOBAL_IMPORTS, CardsComponent, PostsComponent],
-  templateUrl: './news.component.html',
-  styleUrl: './news.component.css'
-})
-export class NewsComponent implements OnInit {
-
-  //posts: Post[] = []; // Lista de posts
-
-  showPost = false;
-  maxId=0;
-
-  constructor(private sharedStateService: SharedStateService) { }
-
-  ngOnInit(): void {
-    this.sharedStateService.showPost$.subscribe((value) => {
-      this.showPost = value;
-    });
-    this.maxId = this.getMaxId(this.posts)+1;
-  }
-
-  handleNewPost(post: string): void {
-
-    const newReply: Post = {
-      id: this.maxId++, // ID único
-      content: post.trim(),
-      person: {
-        id: 3,
-        name: 'Luis Raez',
-        position: 'Analista Programador',
-        area: 'Sistemas',
-        numero: '',
-        correo: 'sistemas4@consorcio-carolina.com',
-      },
-      subject: false, // Asumimos que es una respuesta, no un tema principal
-      seccion: 0, // Puedes reemplazarlo con un valor válido según tu lógica
-      pais: {
-        id: 0, // Puedes ajustar según el país correspondiente
-        name: ''
-      },
-      subseccion1: 0, // Reemplaza con el valor adecuado
-      subseccion2: 0, // Reemplaza con el valor adecuado
-      followUps: [],
-      replyTo: null,
-      replies: [],
-      createdAt: new Date()
-    };
-
-    this.posts.unshift(newReply);
-  }
-
-  posts: Post[] = [
+posts: Post[] = [
 
     {
     id: 43,
@@ -72,12 +12,12 @@ export class NewsComponent implements OnInit {
     subject: true,
     content: "Contenido de prueba 43",
     person: {
-      id: 128,
-      name: "Usuario 28",
-      position: "Cargo 28",
-      area: "Área 28",
-      numero: "345660",
-      correo: "usuario28@consorcio-peru.com"
+      id: 130,
+      name: "Usuario 30",
+      position: "Cargo 30",
+      area: "Área 30",
+      numero: "370350",
+      correo: "usuario30@consorcio-peru.com"
         },
     followUps: [],
     replyTo: null,
@@ -1522,106 +1462,3 @@ export class NewsComponent implements OnInit {
       createdAt: new Date("2024-12-14T09:00:00Z")
     },
 ];
-
-
-
- getMaxId = (posts: Post[]): number => {
-  return posts.reduce((maxId, post) => {
-    return post.id > maxId ? post.id : maxId;
-  }, 0);  // Inicializamos con 0 para que devuelva el mayor id
-}
-
-// Obtener el id más alto
- 
-
-  addReply(postId: number, replyContent: string) {
-    const originalPost = this.posts.find((post) => post.id === postId);
-    if (originalPost) {
-      // Generar contenido combinado del mensaje original y sus seguimientos
-      const originalContentWithFollowUps = this.buildContentWithFollowUps(originalPost);
-
-      const newReply: Post = {
-        id: this.maxId++, // ID único
-        content: replyContent.trim(),
-        person: {
-          id: 3,
-          name: 'Luis Raez',
-          position: 'Analista Programador',
-          area: 'Sistemas',
-          numero: '',
-          correo: 'sistemas4@consorcio-carolina.com',
-        },
-        subject: false, // Asumimos que es una respuesta, no un tema principal
-        seccion: 0, // Puedes reemplazarlo con un valor válido según tu lógica
-        pais: {
-          id: 0, // Puedes ajustar según el país correspondiente
-          name: ''
-        },
-        subseccion1: 0, // Reemplaza con el valor adecuado
-        subseccion2: 0, // Reemplaza con el valor adecuado
-        followUps: [],
-        replyTo: originalPost,
-        replies: [],
-        createdAt: new Date()
-      };
-
-
-      // Combinar contenido del mensaje original con la nueva respuesta
-      newReply.content = `
-        Respuesta: ${replyContent} \n
-        ------------------- \n
-        Mensaje original al que se responde: \n
-        ${originalContentWithFollowUps}
-      `;
-
-      // Relacionar la nueva respuesta con el post original
-      originalPost.replies.push(newReply);
-
-      // Agregar al listado de posts para que sea visible
-      this.posts.unshift(newReply);
-    }
-  }
-
-  // Construir contenido combinado del post original y sus seguimientos
-  buildContentWithFollowUps(post: Post): string {
-    let content = `
-      Autor: ${post.person.name} \n
-      Contenido: \n\t${post.content.split('\n').join('\n\t')} \n
-    `;
-
-    if (post.followUps.length > 0) {
-      content += '\n--- Seguimientos ---\n';
-      post.followUps.forEach((followUp, index) => {
-        content += ` 
-          Seguimiento ${index + 1} de la noticia numero ${followUp.idPost} por ${followUp.person.name}:\n\t${followUp.content}\n
-        `;
-      });
-    }
-
-    return content;
-  }
-
-  // Agregar un seguimiento a un post
-  addFollowToPost(postId: number, followContent: string) {
-    const post = this.posts.find((p) => p.id === postId);
-    if (post) {
-      const newFollow: FollowUp = {
-        idFollow: this.maxId++, // Generar un ID único
-        idPost: postId,
-        person: {
-          id: 3,
-          name: 'Luis Raez',
-          position: 'Analista Programador',
-          area: 'Sistemas',
-          numero: '',
-          correo: 'sistemas4@consorcio-carolina.com',
-        },
-        content: followContent,
-        expanded: true,
-        createdAt: new Date(), // Guardar la fecha actual
-      };
-      post.followUps.push(newFollow); // Agregar al array de seguimientos del post
-    }
-  }
-
-}

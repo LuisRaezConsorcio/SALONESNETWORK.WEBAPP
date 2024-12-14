@@ -1,4 +1,8 @@
 <div class="news-feed">
+  <app-posts  *ngIf="showPost"
+  (newPostCreated)="handleNewPost($event)"
+></app-posts>
+
   <div *ngFor="let post of posts">
     <app-cards
       [post]="post"
@@ -7,3 +11,5 @@
     ></app-cards>
   </div>
 </div>
+
+

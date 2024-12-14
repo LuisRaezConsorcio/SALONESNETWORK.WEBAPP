@@ -1,65 +1,111 @@
-<div class="card bg-white p-6 rounded-lg shadow-lg max-w-5xl min-w-[300px]  w-full mx-auto bg-white rounded-lg shadow-md">
-    <h3 class="text-xl font-semibold">{{ post.title }}</h3>
-    <p class="text-gray-600 w-full">Publicado por: {{ post.person?.name }}</p>
-    <pre class="mt-2 bg-green-100 p-4 rounded-md overflow-auto break-words whitespace-pre-wrap">{{ post.content }}</pre>
-  
-    <!-- <div *ngIf="post.replyTo" class="mt-2 p-3 bg-gray-100 rounded-lg">
-      <h6 class="text-sm font-bold">Mensaje original al que se responde:</h6>
-      <p><strong>Título:</strong> {{ post.replyTo.title }}</p>
-      <p><strong>Autor:</strong> {{ post.replyTo.person?.name }}</p>
-      <pre>{{ post.replyTo.content }}</pre>
-    </div> -->
-  
-    <!-- <div *ngIf="post.followUps.length > 0" class="mt-4 ">
-      <h6 class="text-sm font-semibold text-gray-500">Seguimientos:</h6>
-      <div *ngFor="let followUp of post.followUps" class="p-2 bg-gray-100 rounded-md mt-2">
-        <pre class="text-sm">{{ followUp.content }}</pre>
-        <small>Por: {{ followUp.person.name }} ({{ followUp.person.position }})</small>
-      </div>
-    </div> -->
-  
+<!--  
 
-    <div *ngIf="post.followUps.length > 0" class="join join-vertical w-full">
-        <div *ngFor="let followUp of post.followUps" class="collapse collapse-arrow join-item border-base-300 border">
-          <input type="checkbox" name="my-accordion-4" />
-          <div class="collapse-title text-xl font-medium">Seguimiento de la noticia {{post.id}}
-            <br>
-          <small>Numero de seguimiento: {{ followUp.idFollow }}</small>
+<div class="max-w-5xl min-w-[300px] mx-auto bg-white rounded-lg shadow-md">
+    <div class="w-full mx-auto bg-white rounded-lg p-6">
 
-          </div>
-          <div class="collapse-content">
-            <!-- <pre class="text-sm">{{ followUp.content }}</pre>
-            <p class="text-sm text-gray-500">
-                Fecha de seguimiento: {{ followUp.createdAt | date: 'dd/MM/yyyy HH:mm:ss' }}
-              </p>
-            <small>Por: {{ followUp.person.name }} ({{ followUp.person.position }})</small> -->
+        <div #editorElement>
+            <ckeditor [editor]="Editor" [config]="config" [(ngModel)]="editorContent"   *ngIf="Editor && config" />
+        </div>
 
-            <div class=" grid grid-cols-5 gap-4 border border-gray-300 p-4">
+        <div class="my-2">
+            <input [(ngModel)]="tagInput" placeholder="Etiqueta personas"
+                class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" />
+            <div class="flex flex-wrap mt-2">
+                <span *ngFor="let tag of tags"
+                    class="bg-blue-500 text-white rounded-full px-3 py-1 text-sm mr-2 mb-2 flex items-center">
+                    {{ tag }}
+                    <button (click)="removeTag(tag)" class="ml-2 text-white hover:text-gray-200 focus:outline-none">
+                        ✕
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <div class="my-2">
+            <label class="block text-sm font-medium text-gray-700">Sube archivos:</label>
+            <input type="file" (change)="onFileSelected($event)" multiple
+                accept=".jpg,.jpeg,.png,.pdf,.xls,.xlsx,.docx,.doc,.txt"
+                class="mt-1 block w-full text-sm border rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+            <ul class="mt-2">
+                <li *ngFor="let file of selectedFiles; let i = index"
+                    class="flex items-center text-sm text-gray-600 mb-2">
+                    <span class="mr-2">
+                        <i [ngClass]="getFileIcon(file)" class="text-xl"></i>
+                    </span>
+                    <span>{{ file.name }}</span>
+                    <button (click)="removeFile(i)" class="ml-2 text-red-500 hover:text-red-700 focus:outline-none">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <button (click)="submitPost()"
+            class="w-full btn btn-primary text-white py-2 px-4 rounded-lg">
+            Publicar
+        </button>
+    </div>
+</div> -->
+
+<br>
+
+
+
+<div
+  class="card bg-white p-6 rounded-lg shadow-lg max-w-5xl min-w-[300px] overflow-auto w-full mx-auto bg-white rounded-lg shadow-md">
+
+
+  <div class=" grid grid-cols-5 gap-4 border border-gray-300 p-4  min-w-[590px] ">
+    <!-- Primera columna: Datos de la persona -->
+    <div class="col-span-1 justify-items-center  border-r border-gray-300 p-2">
+      <!-- <h3 class="text-xl font-semibold">{{ post.title }}</h3>
+      <p class="text-gray-600 w-full">Publicado por: {{ post.person?.name }}</p>
+ -->
+
+      <small class="block">{{ post.person.name }}</small>
+                  <i class="fa-solid fa-user-astronaut"></i>
+                  <small class="block">{{ post.person.position }}</small>
+                  <small class="block">{{ post.person.area }}</small>
+                  <small class="block">Nº Noticia</small>
+                  <small class="block">{{ post.id }}</small>
+    </div>
+
+    <!-- Segunda columna: Contenido del seguimiento -->
+    <div class="col-span-3  border-r border-gray-300 p-2">
+      <div class="mt-2 bg-green-100 p-4 rounded-md overflow-auto break-words whitespace-pre-wrap">{{ post.content }}</div>
+        <div *ngIf="post.followUps.length > 0" class="join join-vertical w-full">
+          <div *ngFor="let followUp of post.followUps" class="collapse collapse-arrow join-item border-base-300 border">
+            <input type="checkbox" name="my-accordion-4" />
+            <div class="collapse-title text-xl font-medium">Seguimiento de la noticia {{post.id}}
+              <br>
+              <small>Numero de seguimiento: {{ followUp.idFollow }}</small>
+      
+            </div>
+            <div class="collapse-content  overflow-auto">
+              <!-- <pre class="text-sm">{{ followUp.content }}</pre>
+                  <p class="text-sm text-gray-500">
+                      Fecha de seguimiento: {{ followUp.createdAt | date: 'dd/MM/yyyy HH:mm:ss' }}
+                    </p>
+                  <small>Por: {{ followUp.person.name }} ({{ followUp.person.position }})</small> -->
+      
+              <div class=" grid grid-cols-5 gap-4 border border-gray-300 p-4 min-w-[482px]">
                 <!-- Primera columna: Datos de la persona -->
                 <div class="col-span-1 justify-items-center  border-r border-gray-300 p-2">
-                  <small class="block">{{ followUp.person.name }}</small> 
+                  <small class="block">{{ followUp.person.name }}</small>
+                  <i class="fa-solid fa-user-astronaut"></i>
                   <small class="block">{{ followUp.person.position }}</small>
                   <small class="block">{{ followUp.person.area }}</small>
                   <small class="block">Nº Noticia</small>
                   <small class="block">{{ followUp.idPost }}</small>
                 </div>
-              
+      
                 <!-- Segunda columna: Contenido del seguimiento -->
-                <div class="col-span-3  border-r border-gray-300 p-2">
-                  <pre class="text-sm">{{ followUp.content }}ngfgfhmg
-                    hfgghgsdf
-                    hfgsgfhfg
-                    fsghjgsdhg
-                    jgsgfhjfgrs
-                    gdhjfgrsrgdhgf
-                    sghgstdhgj
-                    fgrsgdhjgsgdh
-                    jfgrsdghjfgrsdh
-                    grtdfhjfgrdsth
-                    n
-                  </pre>
+                <div class="col-span-3  border-r border-gray-300
+                mt-2 bg-green-100 p-4 rounded-md overflow-auto break-words whitespace-normal " >
+                  <pre class="text-sm">{{ followUp.content }}
+                        </pre>
                 </div>
-              
+      
                 <!-- Tercera columna: Fecha de seguimiento -->
                 <div class="col-span-1 justify-items-end">
                   <p class="text-sm text-gray-500">
@@ -67,49 +113,81 @@
                   </p>
                 </div>
               </div>
+            </div>
           </div>
         </div>
+      
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="flex justify-end space-x-4 mt-4">
-      <button (click)="toggleReply()" class="btn btn-primary">Responder</button>
-      <button (click)="toggleFollow()" class="btn btn-secondary">Seguimiento</button>
-    </div>
-  
-    <div *ngIf="openReply" class="mt-4">
-      <textarea
-        [(ngModel)]="replyContent"
-        placeholder="Escribe tu respuesta..."
-        class="textarea textarea-primary"
-      ></textarea>
-      <button (click)="sendReply()" class="btn btn-success mt-2">Enviar Respuesta</button>
-    </div>
-  
-    <div *ngIf="openFollow" class="mt-4">
-      <textarea
-        [(ngModel)]="followContent"
-        placeholder="Escribe tu seguimiento..."
-        class="textarea textarea-secondary"
-      ></textarea>
-      <button (click)="addFollowToPost()" class="btn btn-success mt-2">Enviar Seguimiento</button>
+    <!-- Tercera columna: Fecha de seguimiento -->
+    <div class="col-span-1 justify-items-end">
+      <p class="text-sm text-gray-500">
+        {{ post.createdAt | date: 'dd/MM/yyyy HH:mm:ss' }}
+      </p>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div *ngIf="post.replyTo" class="mt-2 p-3 bg-gray-100 rounded-lg">
+      <h6 class="text-sm font-bold">Mensaje original al que se responde:</h6>
+      <p><strong>Título:</strong> {{ post.replyTo.title }}</p>
+      <p><strong>Autor:</strong> {{ post.replyTo.person?.name }}</p>
+      <pre>{{ post.replyTo.content }}</pre>
+    </div> -->
+
+  <!-- <div *ngIf="post.followUps.length > 0" class="mt-4 ">
+      <h6 class="text-sm font-semibold text-gray-500">Seguimientos:</h6>
+      <div *ngFor="let followUp of post.followUps" class="p-2 bg-gray-100 rounded-md mt-2">
+        <pre class="text-sm">{{ followUp.content }}</pre>
+        <small>Por: {{ followUp.person.name }} ({{ followUp.person.position }})</small>
+      </div>
+    </div> -->
+
+
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="flex justify-end space-x-4 mt-4">
+    <button (click)="toggleReply()" class="btn btn-primary">Responder</button>
+    <button (click)="toggleFollow()" class="btn btn-secondary">Seguimiento</button>
+  </div>
+
+  <div *ngIf="openReply" class="mt-4">
+    <textarea [(ngModel)]="replyContent" placeholder="Escribe tu respuesta..."
+      class="textarea textarea-primary w-full"></textarea>
+    <button (click)="sendReply()" class="btn btn-success mt-2">Enviar Respuesta</button>
+  </div>
+
+  <div *ngIf="openFollow" class="mt-4">
+    <textarea [(ngModel)]="followContent" placeholder="Escribe tu seguimiento..."
+      class="textarea textarea-secondary w-full"></textarea>
+    <button (click)="addFollowToPost()" class="btn btn-success mt-2">Enviar Seguimiento</button>
+  </div>
+</div>
+
 
 <br>

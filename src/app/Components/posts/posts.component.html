@@ -1,0 +1,48 @@
+ 
+
+<div class="max-w-5xl min-w-[300px] mx-auto bg-white rounded-lg shadow-md">
+    <div class="w-full mx-auto bg-white rounded-lg p-6">
+
+        <div #editorElement>
+            <ckeditor [editor]="Editor" [config]="config" [(ngModel)]="editorContent"   *ngIf="Editor && config" />
+        </div>
+
+        <div class="my-2">
+            <input [(ngModel)]="tagInput" placeholder="Etiqueta personas"
+                class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" />
+            <div class="flex flex-wrap mt-2">
+                <span *ngFor="let tag of tags"
+                    class="bg-blue-500 text-white rounded-full px-3 py-1 text-sm mr-2 mb-2 flex items-center">
+                    {{ tag }}
+                    <button (click)="removeTag(tag)" class="ml-2 text-white hover:text-gray-200 focus:outline-none">
+                        ✕
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <div class="my-2">
+            <label class="block text-sm font-medium text-gray-700">Sube archivos:</label>
+            <input type="file" (change)="onFileSelected($event)" multiple
+                accept=".jpg,.jpeg,.png,.pdf,.xls,.xlsx,.docx,.doc,.txt"
+                class="mt-1 block w-full text-sm border rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+            <ul class="mt-2">
+                <li *ngFor="let file of selectedFiles; let i = index"
+                    class="flex items-center text-sm text-gray-600 mb-2">
+                    <span class="mr-2">
+                        <i [ngClass]="getFileIcon(file)" class="text-xl"></i>
+                    </span>
+                    <span>{{ file.name }}</span>
+                    <button (click)="removeFile(i)" class="ml-2 text-red-500 hover:text-red-700 focus:outline-none">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <button (click)="submitPost()"
+            class="w-full btn btn-primary text-white py-2 px-4 rounded-lg">
+            Publicar
+        </button>
+    </div>
+</div>

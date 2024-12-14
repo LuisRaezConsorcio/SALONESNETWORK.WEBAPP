@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { GLOBAL_IMPORTS } from '../../global-imports';
+import { SharedStateService } from '../../Services/shared-state.service';
 
 @Component({
   selector: 'app-filter',
@@ -24,5 +25,17 @@ export class FilterComponent {
     { id: 2, nombreCompleto: 'María Gómez', telefono: '+51 987 654 321', correo: 'maria.gomez@ejemplo.com', cargo: 'Directora de Marketing' },
     { id: 3, nombreCompleto: 'Carlos Sánchez', telefono: '+51 456 789 012', correo: 'carlos.sanchez@ejemplo.com', cargo: 'Analista Financiero' },
   ];
+
+  constructor(private sharedStateService: SharedStateService) {}
+
+  onTogglePost(): void {
+    this.sharedStateService.toggleShowPost();
+    // this.updateButtonLabel();
+  }
+
+  // private updateButtonLabel(): void {
+  //   const currentValue = this.sharedStateService.getCurrentValue();
+  //   //this.buttonLabel = currentValue ? 'Esconder Post' : 'Mostrar Post';
+  // }
   
 }

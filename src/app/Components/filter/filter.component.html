@@ -1,5 +1,5 @@
 <div class="w-full mx-auto bg-white px-6 py-2 rounded-lg shadow-md shadow-md">
-    <div class="grid gap-x-6 gap-y-1 grid-cols-1 sm:grid-cols-4 md:grid-cols-6">
+    <div class="grid gap-x-8 gap-y-1 grid-cols-1 sm:grid-cols-4 md:grid-cols-6">
         <div class="sm:col-span-1 col-start-1 sm:col-start-1">
             <div class="flex mt-2">
                 <input type="text" id="idFilter" placeholder="Nro Noticia"
@@ -15,19 +15,31 @@
                     class="w-1/2 mt-2 p-2 ml-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
         </div>
-        <div class="sm:col-span-2 col-start-1 sm:col-start-3 md:col-start-5 text-end">
+        <div class="sm:col-span-4 col-start-1 sm:col-start-3 md:col-start-5 text-end">
             <div class="flex mt-2 justify-end sm:justify-end md:justify-between lg:mr-20">
 
                 <div class="mt-1">
-                    <button class="w-12 text-white btn btn-primary"><i
-                            class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="w-12 text-white btn btn-primary">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="mt-1 ml-4 ">
+                    <button (click)="onTogglePost()" class="w-50 text-white btn btn-primary">
+                        Nueva Noticia
+                    </button>
+                </div>
+                <div class="mt-1 ml-4 ">
+                    <button class="w-50 text-white btn btn-primary">
+                        Mis Mensajes
+                    </button>
                 </div>
                 <div class="mt-1">
                     <div class="drawer drawer-end">
                         <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
                         <div class="drawer-content">
-                            <label for="my-drawer-4"
-                                class="w-110 text-white ml-4 btn btn-primary text-sm">Colaboradores</label>
+                            <label for="my-drawer-4" class="w-110 text-white ml-4 btn btn-primary text-sm">
+                                <i class="fa-regular fa-address-book"></i>
+                            </label>
                         </div>
                         <div class="drawer-side fixed inset-0 z-50">
                             <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
