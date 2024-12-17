@@ -1,10 +1,19 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BreadcrumbsService {
+  private TitleSource = new BehaviorSubject<string[]>([]);
+  title$ = this.TitleSource.asObservable();
+
+  // Método para actualizar el titulo de asunto
+  setTitle(title: string[]): void {
+    this.TitleSource.next(title);
+  }
+
 
   // Método para construir todo el breadcrumb desde la raíz
   buildBreadcrumb(route: ActivatedRouteSnapshot, breadcrumbs: any[] = []): any[] {

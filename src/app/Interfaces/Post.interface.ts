@@ -13,9 +13,7 @@ export interface Post {
   person: Person;
   subject:boolean;
   seccion:number;
-  pais:Pais;
-  subseccion1:number;
-  subseccion2:number;
+  pais:Pais[];
   content: string;
   followUps: FollowUp[]; // Lista de seguimientos
   replyTo: Post | null; // Si es una respuesta, tendrá el post al que responde
@@ -33,6 +31,18 @@ export interface Person {
 }
 
 export interface Pais {
+  id: number;
+  name: string;
+  subMenus:Submenus[]
+}
+
+export interface Submenus {
+  id: number;
+  name: string;
+  tercerNivel:TercerNivel[]
+}
+
+export interface TercerNivel{
   id: number;
   name: string;
 }

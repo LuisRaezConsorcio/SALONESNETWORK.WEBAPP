@@ -1,12 +1,10 @@
 <br>
 <div class="flex w-full max-h-[100%] flex-col sm:flex-row space-y-2">
 
-    <div class="grid grid-cols-1 h-full max-h-[calc(100dvh-16.5rem)] min-w-[300px] sm:min-w-[380px] sm:grid-cols-2 lg:grid-cols-3 gap-1 py-2
-    overflow-y-scroll">
-        <!-- grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] p-4 gap-4"> -->
+    <div
+        class="grid grid-cols-1 h-full max-h-[calc(100dvh-16.5rem)] min-w-[300px] sm:min-w-[380px] sm:grid-cols-2 lg:grid-cols-3 gap-1 py-2 overflow-y-scroll">
         <div *ngFor="let item of menu; let i = index"
             class="flex flex-col items-center bg-gray-200 rounded shadow h-[58px] sm:h-[62px] min-w-[174px]">
-            <!-- Botón dentro del div secundario -->
             <button (click)="toggleMenu(item)"
                 class=" btn btn-primary h-full w-full text-white font-bold py-2 px-2 rounded-lg text-xs">
                 {{ item.id }}: {{ item.nombre }}
@@ -16,43 +14,50 @@
 
     <div class="divider sm:divider-horizontal"></div>
 
+    <div class="dropdown">
+        <div tabindex="0" role="button" class="btn m-1" (click)="toggleDropdown()">
+            {{ selectedCountry?.nombre || 'Seleccione un país' }}
+        </div>
+        <!-- Usamos ngIf para controlar la visibilidad del dropdown -->
+        <ul *ngIf="dropdownOpen" tabindex="0"
+            class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+            <li *ngFor="let pais of selectedMenu.pais">
+                <a (click)="selectCountry(pais)">{{ pais.nombre }}</a>
+            </li>
+        </ul>
+    </div>
     <div class="min-w-[300px] sm:min-w-[165px] rounded-box overflow-x-hidden overflow-y-scroll max-h-[calc(100dvh-19rem)] flex-grow place-items-center"
         *ngIf="selectedMenu">
-        <div class="dropdown">
-            <div tabindex="0" role="button" class="btn m-1">Pais</div>
-            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-              <li><a>Peru</a></li>
-            </ul>
-          </div>
-        <ng-container *ngFor="let subMenu of selectedMenu.subMenus">
-            <!-- Si tiene tercer nivel, se muestra como un acordeón -->
-            <div *ngIf="subMenu.tercerNivel.length > 0" class="collapse collapse-arrow bg-base-200 my-1">
-                <input type="radio" name="my-accordion-2"/>
-                <div class="collapse-title text-sm font-medium">
-                    {{ subMenu.nombre }}
-                </div>
-                <div class="collapse-content">
-                    <ul class="menu bg-base-200 rounded-box">
-                        <li *ngFor="let option of subMenu.tercerNivel">
-                            <a [routerLink]="['Mensajes']">
-                                <span class="font-bold hidden">{{ option.id }}</span>
-                                <br />
-                                <span class="font-bold">{{ option.nombre }}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
 
-            <!-- Si no tiene tercer nivel, se muestra como un menú con botón -->
-            <div *ngIf="subMenu.tercerNivel.length === 0"
-                class="flex items-center justify-between w-full bg-base-200 my-1 h-[60px] py-2 px-4 rounded-box">
-                <span class="text-sm font-medium">{{ subMenu.nombre }}</span>
-                <a class="btn btn-primary flex items-center justify-center h-[30px] min-h-[30px] w-[30px] p-0"
-                    [routerLink]="['Mensajes']">
-                    <i class="fa-solid fa-up-right-from-square text-xs"></i>
-                </a>
-            </div>
+        <ng-container *ngIf="selectedCountry">
+            <ng-container *ngFor="let subMenu of selectedCountry.subMenus">
+                <div *ngIf="subMenu.tercerNivel.length > 0" class="collapse collapse-arrow bg-base-200 my-1">
+                    <input type="radio" name="my-accordion-2" />
+                    <div class="collapse-title text-sm font-medium">{{ subMenu.nombre }}</div>
+                    <div class="collapse-content">
+                        <ul class="menu bg-base-200 rounded-box">
+                            <li *ngFor="let option of subMenu.tercerNivel">
+                                <a [routerLink]="['Mensajes']"
+                                    (click)="selectTitles(selectedMenu.nombre,selectedMenu.id, selectedCountry.nombre,selectedCountry.id, subMenu.nombre,subMenu.id,option.nombre,option.id)">
+                                    <span class="font-bold hidden">{{ option.id }}</span>
+                                    <br />
+                                    <span class="font-bold">{{ option.nombre }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div *ngIf="subMenu.tercerNivel.length === 0"
+                    class="flex items-center justify-between w-full bg-base-200 my-1 h-[60px] py-2 px-4 rounded-box">
+                    <span class="text-sm font-medium">{{ subMenu.nombre }}</span>
+                    <a class="btn btn-primary flex items-center justify-center h-[30px] min-h-[30px] w-[30px] p-0"
+                        [routerLink]="['Mensajes']"
+                        (click)="selectTitles(selectedMenu.nombre,selectedMenu.id, selectedCountry.nombre,selectedCountry.id, subMenu.nombre,subMenu.id)">
+                        <i class="fa-solid fa-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </ng-container>
         </ng-container>
     </div>
 </div>

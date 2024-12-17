@@ -4,7 +4,7 @@
 ></app-posts>
 
   <div *ngFor="let post of posts">
-    <app-cards
+    <app-cards  *ngIf="!post.subject"
       [post]="post"
       (addReply)="addReply(post.id, $event)"
       (addFollow)="addFollowToPost(post.id, $event)"

@@ -17,7 +17,7 @@ export class NewsComponent implements OnInit {
   //posts: Post[] = []; // Lista de posts
 
   showPost = false;
-  maxId=0;
+  maxId = 0;
 
   constructor(private sharedStateService: SharedStateService) { }
 
@@ -25,7 +25,7 @@ export class NewsComponent implements OnInit {
     this.sharedStateService.showPost$.subscribe((value) => {
       this.showPost = value;
     });
-    this.maxId = this.getMaxId(this.posts)+1;
+    this.maxId = this.getMaxId(this.posts) + 1;
   }
 
   handleNewPost(post: string): void {
@@ -35,20 +35,28 @@ export class NewsComponent implements OnInit {
       content: post.trim(),
       person: {
         id: 3,
-        name: 'Luis Raez',
-        position: 'Analista Programador',
+        name: 'CARLOS PALOMINO',
+        position: 'Gerente',
         area: 'Sistemas',
         numero: '',
-        correo: 'sistemas4@consorcio-carolina.com',
+        correo: 'carlos.palomino@consorcio-carolina.com',
       },
       subject: false, // Asumimos que es una respuesta, no un tema principal
       seccion: 0, // Puedes reemplazarlo con un valor válido según tu lógica
-      pais: {
-        id: 0, // Puedes ajustar según el país correspondiente
-        name: ''
-      },
-      subseccion1: 0, // Reemplaza con el valor adecuado
-      subseccion2: 0, // Reemplaza con el valor adecuado
+      pais: [
+        {
+          id: 1, // Puedes ajustar según el país correspondiente
+          name: 'Peru',
+          subMenus:
+          [
+            {
+              id: 1,
+              name: "Fundo Don Edmundo",
+              tercerNivel: []
+            }
+          ]
+        }
+      ],
       followUps: [],
       replyTo: null,
       replies: [],
@@ -58,17 +66,22 @@ export class NewsComponent implements OnInit {
     this.posts.unshift(newReply);
   }
 
+
   posts: Post[] = [
 
     {
     id: 43,
     seccion: 57,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 43",
     person: {
@@ -87,12 +100,16 @@ export class NewsComponent implements OnInit {
     {
     id: 42,
     seccion: 57,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 41",
     person: {
@@ -111,12 +128,16 @@ export class NewsComponent implements OnInit {
     {
     id: 41,
     seccion: 57,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 41",
     person: {
@@ -135,12 +156,16 @@ export class NewsComponent implements OnInit {
     {
     id: 40,
     seccion: 56,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 38",
     person: {
@@ -159,12 +184,16 @@ export class NewsComponent implements OnInit {
     {
     id: 39,
     seccion: 56,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 38",
     person: {
@@ -183,12 +212,16 @@ export class NewsComponent implements OnInit {
     {
     id: 38,
     seccion: 56,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 38",
     person: {
@@ -207,12 +240,16 @@ export class NewsComponent implements OnInit {
     {
     id: 37,
     seccion: 55,
-    subseccion1: 3,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 3,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -231,12 +268,16 @@ export class NewsComponent implements OnInit {
     {
     id: 36,
     seccion: 55,
-    subseccion1: 3,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 3,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -255,12 +296,16 @@ export class NewsComponent implements OnInit {
     {
     id: 35,
     seccion: 55,
-    subseccion1: 3,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 3,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -279,12 +324,16 @@ export class NewsComponent implements OnInit {
     {
     id: 34,
     seccion: 55,
-    subseccion1: 2,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -303,12 +352,16 @@ export class NewsComponent implements OnInit {
     {
     id: 33,
     seccion: 55,
-    subseccion1: 2,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 2,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -327,12 +380,16 @@ export class NewsComponent implements OnInit {
     {
     id: 32,
     seccion: 55,
-    subseccion1: 2,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 2,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -351,12 +408,16 @@ export class NewsComponent implements OnInit {
     {
     id: 31,
     seccion: 55,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -375,12 +436,16 @@ export class NewsComponent implements OnInit {
     {
     id: 30,
     seccion: 55,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -399,12 +464,16 @@ export class NewsComponent implements OnInit {
     {
     id: 29,
     seccion: 55,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -423,12 +492,16 @@ export class NewsComponent implements OnInit {
     {
     id: 28,
     seccion: 2,
-    subseccion1: 3,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 3,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -447,12 +520,16 @@ export class NewsComponent implements OnInit {
     {
     id: 27,
     seccion: 2,
-    subseccion1: 3,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 3,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -471,12 +548,16 @@ export class NewsComponent implements OnInit {
     {
     id: 26,
     seccion: 2,
-    subseccion1: 3,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 3,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -495,12 +576,16 @@ export class NewsComponent implements OnInit {
     {
     id: 25,
     seccion: 2,
-    subseccion1: 2,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 2,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -519,12 +604,16 @@ export class NewsComponent implements OnInit {
     {
     id: 24,
     seccion: 2,
-    subseccion1: 2,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 2,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -543,12 +632,16 @@ export class NewsComponent implements OnInit {
     {
     id: 23,
     seccion: 2,
-    subseccion1: 2,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 2,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 23",
     person: {
@@ -567,12 +660,16 @@ export class NewsComponent implements OnInit {
     {
     id: 22,
     seccion: 2,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 20",
     person: {
@@ -591,12 +688,16 @@ export class NewsComponent implements OnInit {
     {
     id: 21,
     seccion: 2,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 20",
     person: {
@@ -615,12 +716,16 @@ export class NewsComponent implements OnInit {
     {
     id: 20,
     seccion: 2,
-    subseccion1: 1,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 20",
     person: {
@@ -639,12 +744,16 @@ export class NewsComponent implements OnInit {
     {
     id: 19,
     seccion: 1,
-    subseccion1: 3,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 3,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 19",
     person: {
@@ -663,12 +772,16 @@ export class NewsComponent implements OnInit {
     {
     id: 18,
     seccion: 1,
-    subseccion1: 3,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 3,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 18",
     person: {
@@ -687,12 +800,16 @@ export class NewsComponent implements OnInit {
     {
     id: 17,
     seccion: 1,
-    subseccion1: 3,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 3,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 17",
     person: {
@@ -711,12 +828,16 @@ export class NewsComponent implements OnInit {
     {
     id: 16,
     seccion: 1,
-    subseccion1: 2,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 2,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 16",
     person: {
@@ -735,12 +856,16 @@ export class NewsComponent implements OnInit {
     {
     id: 15,
     seccion: 1,
-    subseccion1: 2,
-    subseccion2: 0,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 2,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     subject: true,
     content: "Contenido de prueba 15",
     person: {
@@ -759,12 +884,16 @@ export class NewsComponent implements OnInit {
     {
       id: 14,
       seccion: 1,
-      subseccion1: 2,
-      subseccion2: 0,
-      pais: {
-        id: 15,
-        name: "Perú"
-        },
+      pais: [{
+        id: 2,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       subject: true,
       content: "Contenido de prueba 14",
       person: {
@@ -792,12 +921,16 @@ export class NewsComponent implements OnInit {
           },
     subject: true,
     seccion: 1,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
-    subseccion1: 1,
-    subseccion2: 0,
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     content: "Este es el contenido principal del nuevo post.",
     followUps: [
             {
@@ -849,12 +982,16 @@ export class NewsComponent implements OnInit {
           },
     subject: true,
     seccion: 1,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
-    subseccion1: 1,
-    subseccion2: 0,
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     content: "Este es el contenido principal del nuevo post.",
     followUps: [
             {
@@ -906,12 +1043,16 @@ export class NewsComponent implements OnInit {
           },
     subject: true,
     seccion: 1,
-    pais: {
-      id: 15,
-      name: "Perú"
-        },
-    subseccion1: 1,
-    subseccion2: 0,
+    pais: [{
+      id: 1,
+      name: 'Peru',
+      subMenus:
+      [{
+        id: 1,
+        name: "Fundo Don Edmundo",
+        tercerNivel: []
+      }]
+    }],
     content: "Este es el contenido principal del nuevo post.",
     followUps: [
             {
@@ -963,12 +1104,16 @@ export class NewsComponent implements OnInit {
         },
       subject: false,
       seccion: 0,
-      pais: {
-        id: 10,
-        name: "Perú"
-        },
-      subseccion1: 0,
-      subseccion2: 0,
+      pais: [{
+        id: 1,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       content: "Este es el contenido principal del post.",
       followUps: [
             {
@@ -1020,12 +1165,16 @@ export class NewsComponent implements OnInit {
         },
       subject: false,
       seccion: 0,
-      pais: {
-        id: 10,
-        name: "Perú"
-        },
-      subseccion1: 0,
-      subseccion2: 0,
+      pais: [{
+        id: 1,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       content: "Este es el contenido principal del post.",
       followUps: [
             {
@@ -1077,12 +1226,16 @@ export class NewsComponent implements OnInit {
         },
       subject: false,
       seccion: 0,
-      pais: {
-        id: 10,
-        name: "Perú"
-        },
-      subseccion1: 0,
-      subseccion2: 0,
+      pais: [{
+        id: 1,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       content: "Este es el contenido principal del post.",
       followUps: [
             {
@@ -1134,12 +1287,16 @@ export class NewsComponent implements OnInit {
         },
       subject: false,
       seccion: 0,
-      pais: {
-        id: 10,
-        name: "Perú"
-        },
-      subseccion1: 0,
-      subseccion2: 0,
+      pais: [{
+        id: 1,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       content: "Este es el contenido principal del post.",
       followUps: [
             {
@@ -1191,12 +1348,16 @@ export class NewsComponent implements OnInit {
         },
       subject: false,
       seccion: 0,
-      pais: {
-        id: 10,
-        name: "Perú"
-        },
-      subseccion1: 0,
-      subseccion2: 0,
+      pais: [{
+        id: 1,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       content: "Este es el contenido principal del post.",
       followUps: [
             {
@@ -1248,12 +1409,16 @@ export class NewsComponent implements OnInit {
         },
       subject: false,
       seccion: 0,
-      pais: {
-        id: 10,
-        name: "Perú"
-        },
-      subseccion1: 0,
-      subseccion2: 0,
+      pais: [{
+        id: 1,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       content: "Este es el contenido principal del post.",
       followUps: [
             {
@@ -1305,12 +1470,16 @@ export class NewsComponent implements OnInit {
         },
       subject: false,
       seccion: 0,
-      pais: {
-        id: 10,
-        name: "Perú"
-        },
-      subseccion1: 0,
-      subseccion2: 0,
+      pais: [{
+        id: 1,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       content: "Este es el contenido principal del post.",
       followUps: [
             {
@@ -1362,12 +1531,16 @@ export class NewsComponent implements OnInit {
         },
       subject: false,
       seccion: 0,
-      pais: {
-        id: 10,
-        name: "Perú"
-        },
-      subseccion1: 0,
-      subseccion2: 0,
+      pais: [{
+        id: 1,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       content: "Este es el contenido principal del post.",
       followUps: [
             {
@@ -1419,12 +1592,16 @@ export class NewsComponent implements OnInit {
         },
       subject: false,
       seccion: 0,
-      pais: {
-        id: 10,
-        name: "Perú"
-        },
-      subseccion1: 0,
-      subseccion2: 0,
+      pais: [{
+        id: 1,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       content: "Este es el contenido principal del post.",
       followUps: [
             {
@@ -1476,12 +1653,16 @@ export class NewsComponent implements OnInit {
         },
       subject: false,
       seccion: 0,
-      pais: {
-        id: 10,
-        name: "Perú"
-        },
-      subseccion1: 0,
-      subseccion2: 0,
+      pais: [{
+        id: 1,
+        name: 'Peru',
+        subMenus:
+        [{
+          id: 1,
+          name: "Fundo Don Edmundo",
+          tercerNivel: []
+        }]
+      }],
       content: "Este es el contenido principal del post.",
       followUps: [
             {
@@ -1521,107 +1702,111 @@ export class NewsComponent implements OnInit {
       replies: [],
       createdAt: new Date("2024-12-14T09:00:00Z")
     },
-];
+  ];
 
-
-
- getMaxId = (posts: Post[]): number => {
+getMaxId = (posts: Post[]): number => {
   return posts.reduce((maxId, post) => {
     return post.id > maxId ? post.id : maxId;
   }, 0);  // Inicializamos con 0 para que devuelva el mayor id
 }
 
 // Obtener el id más alto
- 
+addReply(postId: number, replyContent: string) {
+  const originalPost = this.posts.find((post) => post.id === postId);
+  if (originalPost) {
+    // Generar contenido combinado del mensaje original y sus seguimientos
+    const originalContentWithFollowUps = this.buildContentWithFollowUps(originalPost);
 
-  addReply(postId: number, replyContent: string) {
-    const originalPost = this.posts.find((post) => post.id === postId);
-    if (originalPost) {
-      // Generar contenido combinado del mensaje original y sus seguimientos
-      const originalContentWithFollowUps = this.buildContentWithFollowUps(originalPost);
+    const newReply: Post = {
+      id: this.maxId++, // ID único
+      content: replyContent.trim(),
+      person: {
+        id: 3,
+        name: 'CARLOS PALOMINO',
+        position: 'Gerente',
+        area: 'Sistemas',
+        numero: '',
+        correo: 'carlos.palomino@consorcio-carolina.com',
+      },
+      subject: false, // Asumimos que es una respuesta, no un tema principal
+      seccion: 0, // Puedes reemplazarlo con un valor válido según tu lógica
+      pais: [
+        {
+          id: 1, // Puedes ajustar según el país correspondiente
+          name: 'Peru',
+          subMenus:
+          [
+            {
+              id: 1,
+              name: "Fundo Don Edmundo",
+              tercerNivel: []
+            }
+          ]
+        }
+      ],
+      followUps: [],
+      replyTo: originalPost,
+      replies: [],
+      createdAt: new Date()
+    };
 
-      const newReply: Post = {
-        id: this.maxId++, // ID único
-        content: replyContent.trim(),
-        person: {
-          id: 3,
-          name: 'Luis Raez',
-          position: 'Analista Programador',
-          area: 'Sistemas',
-          numero: '',
-          correo: 'sistemas4@consorcio-carolina.com',
-        },
-        subject: false, // Asumimos que es una respuesta, no un tema principal
-        seccion: 0, // Puedes reemplazarlo con un valor válido según tu lógica
-        pais: {
-          id: 0, // Puedes ajustar según el país correspondiente
-          name: ''
-        },
-        subseccion1: 0, // Reemplaza con el valor adecuado
-        subseccion2: 0, // Reemplaza con el valor adecuado
-        followUps: [],
-        replyTo: originalPost,
-        replies: [],
-        createdAt: new Date()
-      };
 
-
-      // Combinar contenido del mensaje original con la nueva respuesta
-      newReply.content = `
+    // Combinar contenido del mensaje original con la nueva respuesta
+    newReply.content = `
         Respuesta: ${replyContent} \n
         ------------------- \n
         Mensaje original al que se responde: \n
         ${originalContentWithFollowUps}
       `;
 
-      // Relacionar la nueva respuesta con el post original
-      originalPost.replies.push(newReply);
+    // Relacionar la nueva respuesta con el post original
+    originalPost.replies.push(newReply);
 
-      // Agregar al listado de posts para que sea visible
-      this.posts.unshift(newReply);
-    }
+    // Agregar al listado de posts para que sea visible
+    this.posts.unshift(newReply);
   }
+}
 
-  // Construir contenido combinado del post original y sus seguimientos
-  buildContentWithFollowUps(post: Post): string {
-    let content = `
+// Construir contenido combinado del post original y sus seguimientos
+buildContentWithFollowUps(post: Post): string {
+  let content = `
       Autor: ${post.person.name} \n
       Contenido: \n\t${post.content.split('\n').join('\n\t')} \n
     `;
 
-    if (post.followUps.length > 0) {
-      content += '\n--- Seguimientos ---\n';
-      post.followUps.forEach((followUp, index) => {
-        content += ` 
+  if (post.followUps.length > 0) {
+    content += '\n--- Seguimientos ---\n';
+    post.followUps.forEach((followUp, index) => {
+      content += ` 
           Seguimiento ${index + 1} de la noticia numero ${followUp.idPost} por ${followUp.person.name}:\n\t${followUp.content}\n
         `;
-      });
-    }
-
-    return content;
+    });
   }
 
-  // Agregar un seguimiento a un post
-  addFollowToPost(postId: number, followContent: string) {
-    const post = this.posts.find((p) => p.id === postId);
-    if (post) {
-      const newFollow: FollowUp = {
-        idFollow: this.maxId++, // Generar un ID único
-        idPost: postId,
-        person: {
-          id: 3,
-          name: 'Luis Raez',
-          position: 'Analista Programador',
-          area: 'Sistemas',
-          numero: '',
-          correo: 'sistemas4@consorcio-carolina.com',
-        },
-        content: followContent,
-        expanded: true,
-        createdAt: new Date(), // Guardar la fecha actual
-      };
-      post.followUps.push(newFollow); // Agregar al array de seguimientos del post
-    }
+  return content;
+}
+
+// Agregar un seguimiento a un post
+addFollowToPost(postId: number, followContent: string) {
+  const post = this.posts.find((p) => p.id === postId);
+  if (post) {
+    const newFollow: FollowUp = {
+      idFollow: this.maxId++, // Generar un ID único
+      idPost: postId,
+      person: {
+        id: 3,
+        name: 'CARLOS PALOMINO',
+        position: 'Gerente',
+        area: 'Sistemas',
+        numero: '',
+        correo: 'carlos.palomino@consorcio-carolina.com',
+      },
+      content: followContent,
+      expanded: true,
+      createdAt: new Date(), // Guardar la fecha actual
+    };
+    post.followUps.push(newFollow); // Agregar al array de seguimientos del post
   }
+}
 
 }

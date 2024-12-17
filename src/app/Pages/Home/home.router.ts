@@ -7,6 +7,11 @@ export default [
             import('./home/home.component').then((m) => m.HomeComponent),
         children: [
             {
+                path: '',
+                redirectTo: 'Noticias', // Redirige automáticamente a Noticias cuando se accede a /Home
+                pathMatch: 'full',
+            },
+            {
                 path: 'Noticias',
                 data: { breadcrumb: 'Noticias' },
                 loadComponent: () =>

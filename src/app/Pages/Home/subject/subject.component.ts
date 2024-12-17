@@ -3,6 +3,8 @@ import { AccordionComponent } from '../../../Components/accordion/accordion.comp
 import { GLOBAL_IMPORTS } from '../../../global-imports';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { MessageService } from '../../../Services/message.service';
+import { Post } from '../../../Interfaces/Post.interface';
 
 @Component({
   selector: 'app-subject',
@@ -12,9 +14,16 @@ import { filter } from 'rxjs';
 })
 export class SubjectComponent implements OnInit{
 
-  isMessagesRoute: boolean = false;
+  posts: Post[] = [];
+  filteredPosts: Post[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
+  isMessagesRoute = false;
+
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private messageService: MessageService) {
+    this.posts = this.messageService.getPosts();
+  }
+  
 
   ngOnInit(): void {
     // Verificar si estamos en la ruta 'Messages' cuando se cargue el componente
@@ -33,5 +42,7 @@ export class SubjectComponent implements OnInit{
     const currentRoute = this.activatedRoute.snapshot.firstChild?.routeConfig?.path;
     this.isMessagesRoute = currentRoute === 'Mensajes';
   }
+
+  
 
 }

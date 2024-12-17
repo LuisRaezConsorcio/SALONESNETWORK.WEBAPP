@@ -29,7 +29,7 @@ export class CardsComponent implements OnInit {
   openReply: boolean = false;
   openFollow: boolean = false;
 
-  posts: Post[] = [];
+  //posts: Post[] = [];
 
   
   titulo: string = '';
@@ -53,11 +53,6 @@ export class CardsComponent implements OnInit {
       }
     });
   }
-
-
-  
-
-
 
   // Datos del post
   postData = {
@@ -103,7 +98,6 @@ export class CardsComponent implements OnInit {
   toggleReplyBox(comment: any): void {
     comment.showReplyBox = !comment.showReplyBox;
   }
-
 
   sendReply() {
     if (this.replyContent.trim()) {

@@ -1,14 +1,23 @@
-<nav class="breadcrumb px-6 py-1">
-    <div class="breadcrumbs text-sm">
-        <ul>
+<div class="flex items-center justify-between px-6 py-1">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumbs text-sm flex items-center space-x-2">
+        <ul class="flex items-center space-x-2">
             <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
                 <li>
-                    <a *ngIf="!last" [routerLink]="breadcrumb.url" class="breadcrumb-link">
+                    <a *ngIf="!last" [routerLink]="breadcrumb.url" class="breadcrumb-link text-blue-500 hover:underline">
                         {{ breadcrumb.label }}
                     </a>
-                    <span *ngIf="last">{{ breadcrumb.label }}</span>
+                    <span *ngIf="last" class="font-semibold">{{ breadcrumb.label }}</span>
                 </li>
             </ng-container>
         </ul>
+    </nav>
+
+    <!-- Titles -->
+    <div *ngIf="titulo.length > 0 && isTitleVisible" class="titles text-sm flex items-center space-x-1 text-gray-700">
+        <span *ngFor="let crumb of titulo; let isLast = last">
+            <span>{{ crumb }}</span>
+            <span *ngIf="!isLast" class="mx-1">></span>
+        </span>
     </div>
-</nav>
+</div>
