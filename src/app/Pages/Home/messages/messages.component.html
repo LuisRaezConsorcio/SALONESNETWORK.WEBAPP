@@ -1,17 +1,8 @@
 <div class="news-feed">
-  <app-posts  *ngIf="showPost"
-  (newPostCreated)="handleNewPost($event)"
-></app-posts>
+  <app-posts *ngIf="showPost" (newPostCreated)="handleNewPost($event)"></app-posts>
 
   <div *ngFor="let post of filteredPosts">
-    <app-cards
-    
-    *ngIf="post.subject"
-    [post]="post"
-      (addReply)="addReply(post.id, $event)"
-      (addFollow)="addFollowToPost(post.id, $event)"
-    ></app-cards>
+    <app-cards [post]="post" (addReply)="addReply(post.id, $event)"
+      (addFollow)="addFollowToPost(post.id, $event)"></app-cards>
   </div>
 </div>
-
-

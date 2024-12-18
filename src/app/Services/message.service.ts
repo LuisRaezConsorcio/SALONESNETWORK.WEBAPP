@@ -1644,7 +1644,7 @@ export class MessageService {
       },
     ];
 
-    private tempFilterCriteria: Partial<FilterCriteria> | null = null;
+    private tempFilterCriteria: Partial<FilterCriteria> = {};
 
     private filteredPostsSubject = new BehaviorSubject<Post[]>([]);  // Cambiado a Post[]
 filteredPosts$ = this.filteredPostsSubject.asObservable();
@@ -1657,6 +1657,7 @@ filteredPosts$ = this.filteredPostsSubject.asObservable();
     
     // Guardar filtros temporales (desde Accordion y Filter)
     setTempFilterCriteria(criteria: Partial<FilterCriteria>) {
+      console.log(criteria)
       if (!this.tempFilterCriteria) {
         this.tempFilterCriteria = {}; // Inicializar si no existe
       }

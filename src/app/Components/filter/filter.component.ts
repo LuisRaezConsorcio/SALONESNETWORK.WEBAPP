@@ -3,6 +3,7 @@ import { GLOBAL_IMPORTS } from '../../global-imports';
 import { SharedStateService } from '../../Services/shared-state.service';
 import { FilterCriteria } from '../../Interfaces/Post.interface';
 import { MessageService } from '../../Services/message.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-filter',
@@ -14,17 +15,22 @@ export class FilterComponent {
 
   // Variables para los campos de filtro
   idFilter: number = 0;
-  startDate: string | null = null; // Fecha seleccionada en el primer calendario
-  endDate: string | null = null;   // Fecha seleccionada en el segundo calendario
-
-
+  startDate: string | null = null;
+  endDate: string | null = null;
   filterCriteria: Partial<FilterCriteria> | null = null;
 
-  @Input() label: string = ''; // Texto de la etiqueta
-  @Input() id: string = ''; // Identificador único
-  @Input() type: string = 'text'; // Tipo de input
-  @Input() model: any; // Modelo para Two-way Binding
-  @Input() disabled: boolean = false; // Deshabilitar input
+  @Input() label: string = '';
+  @Input() id: string = '';
+  @Input() type: string = 'text';
+  @Input() model: any;
+  @Input() disabled: boolean = false;
+
+  constructor(
+    private sharedStateService: SharedStateService, 
+    private messageService: MessageService, 
+    private activatedRoute: ActivatedRoute, 
+    private router: Router
+  ) {}
 
   contactos = [
     { id: 1, nombreCompleto: 'Juan Pérez', telefono: '+51 123 456 789', correo: 'juan.perez@ejemplo.com', cargo: 'Gerente General' },
@@ -36,6 +42,9 @@ export class FilterComponent {
     { id: 3, nombreCompleto: 'Carlos Sánchez', telefono: '+51 456 789 012', correo: 'carlos.sanchez@ejemplo.com', cargo: 'Analista Financiero' },
   ];
 
+  private isNoticiasRoute(): boolean {
+    return this.router.url.includes('Noticias');
+  }
 
   onStartDateChange(): void {
     // Si se cambia la fecha inicial, limpia la fecha final si ya no es válida
@@ -49,9 +58,27 @@ export class FilterComponent {
     this.applyFilter()
   }
 
-  constructor(private sharedStateService: SharedStateService, private messageService: MessageService) {
-
+  applyFilterForNoticias() {
+    if (this.filterCriteria) {
+      // Ajustar los filtros según sea necesario para Noticias
+      const updatedCriteria: Partial<FilterCriteria> = {
+        subject:false,
+        personId:5,
+        noticiaId: this.filterCriteria.noticiaId,
+        startDate: this.filterCriteria.startDate,
+        endDate: this.filterCriteria.endDate,
+      };
+  
+      // Actualizar los criterios y pasarlos al servicio
+      const combinedCriteria: Partial<FilterCriteria> = {
+        ...this.filterCriteria,
+        ...updatedCriteria,
+      };
+      this.messageService.setTempFilterCriteria(combinedCriteria);
+    }
   }
+
+  
 
   onTogglePost(): void {
     this.sharedStateService.toggleShowPost();
@@ -61,35 +88,66 @@ export class FilterComponent {
   // Aplicar filtro definitivo al servicio
   applyFilter() {
     if (this.filterCriteria) {
-      // Aquí puedes modificar o agregar más criterios, como personId
-      this.filterCriteria.personId = 5; // 16 Simulación este número fue puesto porque es el id que le estamos asignado a carlos palomino
-      this.filterCriteria.noticiaId=undefined;
-      this.filterCriteria.startDate=undefined;
-      this.filterCriteria.endDate=undefined;
+      // Verificar si estamos en la ruta de Noticias
+      if (this.isNoticiasRoute()) {
+        // Aplicar filtros específicos para Noticias
+        this.filterCriteria.subject=false;
+        this.filterCriteria.seccion=undefined,
+        this.filterCriteria.paisId=undefined,
+        this.filterCriteria.subMenuId=undefined,
+        this.filterCriteria.tercerNivelId=undefined,
+        this.filterCriteria.personId = 2; // Asignar un personId específico si es necesario
+        this.filterCriteria.noticiaId = undefined; // Limpiar noticiaId
+        this.filterCriteria.startDate = undefined;
+        this.filterCriteria.endDate = undefined;
+  
+      } else {
+        // Aplicar filtros generales para Mensajes
+        this.filterCriteria.subject=true;
+
+        this.filterCriteria.personId = 5; // Asignar un personId específico si es necesario
+        this.filterCriteria.noticiaId = undefined; // Limpiar noticiaId
+        this.filterCriteria.startDate = undefined;
+        this.filterCriteria.endDate = undefined;
+      }
+  
+      // Pasar los filtros al servicio
       this.messageService.setTempFilterCriteria(this.filterCriteria);
     }
   }
 
+  // Método para aplicar filtros
   applySecondFilter() {
     this.filterCriteria = this.messageService.getTempFilterCriteria();
     if (this.filterCriteria) {
-      // Crear un nuevo objeto con los valores que deseas actualizar
-      const updatedCriteria: Partial<FilterCriteria> = {
-        personId: undefined,  // Se establece como undefined o se podría omitir si no se quiere modificar
-        noticiaId: this.idFilter ? Number(this.idFilter) : undefined,
-        startDate: this.startDate ? this.startDate : undefined,
-        endDate: this.endDate ? this.endDate : undefined,
-      };
-  
-      // Combinamos los criterios anteriores con los nuevos, sin sobrescribir los valores existentes
+      // Verificar la ruta y aplicar los filtros correspondientes
+      const updatedCriteria: Partial<FilterCriteria> = this.isNoticiasRoute()
+        ? {
+          subject:false,
+          seccion:undefined,
+          paisId:undefined,
+          subMenuId:undefined,
+          tercerNivelId:undefined,
+            noticiaId: this.idFilter ? Number(this.idFilter) : undefined,
+            startDate: this.startDate ? this.startDate : undefined,
+            endDate: this.endDate ? this.endDate : undefined,
+          }
+        : {
+          subject:true,
+            personId: undefined,
+            noticiaId: this.idFilter ? Number(this.idFilter) : undefined,
+            startDate: this.startDate ? this.startDate : undefined,
+            endDate: this.endDate ? this.endDate : undefined,
+          };
+
+      // Combinamos los criterios anteriores con los nuevos
       const combinedCriteria: Partial<FilterCriteria> = {
-        ...this.filterCriteria,  // Mantener los valores previos
-        ...updatedCriteria,      // Sobrescribir con los nuevos valores donde sea necesario
+        ...this.filterCriteria,
+        ...updatedCriteria,
       };
-  
+
       // Pasamos los criterios combinados al servicio
       this.messageService.setTempFilterCriteria(combinedCriteria);
-  
     } else {
       console.error('filterCriteria no está inicializado correctamente');
     }

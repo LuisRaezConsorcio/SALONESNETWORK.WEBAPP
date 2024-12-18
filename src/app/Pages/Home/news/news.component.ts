@@ -26,13 +26,19 @@ export class NewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.post = this.messageService.getPosts();
+
     this.sharedStateService.showPost$.subscribe((value) => {
       this.showPost = value;
     });
     this.maxId = this.getMaxId(this.post) + 1;
 
     // Aplicar el filtro directamente al obtener los posts
-    this.applyFilter();
+    
+    this.messageService.filteredPosts$.subscribe((filteredPosts: Post[]) => {
+      this.filteredPosts = filteredPosts;
+    });
+
+    this.applyFilter()
   }
 
   applyFilter() {
