@@ -46,3 +46,11 @@ export interface TercerNivel{
   id: number;
   name: string;
 }
+
+export interface FilterCriteria {
+  subject: boolean;
+  seccion: number;
+  paisId: number;
+  subMenuId?: number;
+  tercerNivelId?: number;
+}

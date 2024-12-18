@@ -2,14 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GLOBAL_IMPORTS } from '../../global-imports';
 import { BreadcrumbsService } from '../../Services/breadcrumbs.service';
 import { MessageService } from '../../Services/message.service';
+import { FilterCriteria } from '../../Interfaces/Post.interface';
 
-interface FilterCriteria {
-  subject: boolean;
-  seccion: number;
-  paisId: number;
-  subMenuId?: number;
-  tercerNivelId?: number;
-}
 
 
 @Component({
@@ -21,15 +15,6 @@ interface FilterCriteria {
 export class AccordionComponent implements OnInit {
 
   @Output() filterApplied = new EventEmitter<FilterCriteria>();
-
-
-  // filterCriteria: FilterCriteria = {
-  //   subject: true,
-  //   seccion: 1,
-  //   paisId: 1,
-  //   subMenuId: 1,
-  //   tercerNivelId: 1
-  // };
 
   sendFilter(subject:boolean, seccionid:number, countryid:number, submenuid?:number, tercernivelid?:number) {
 
