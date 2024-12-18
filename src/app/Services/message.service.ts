@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Post } from '../Interfaces/Post.interface';
+import { FilterCriteria, Post } from '../Interfaces/Post.interface';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -25,7 +25,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 43",
         person: {
-          id: 128,
+          id: 15,
           name: "Usuario 28",
           position: "Cargo 28",
           area: "Área 28",
@@ -53,7 +53,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 41",
         person: {
-          id: 128,
+          id: 15,
           name: "Usuario 28",
           position: "Cargo 28",
           area: "Área 28",
@@ -81,7 +81,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 41",
         person: {
-          id: 128,
+          id: 15,
           name: "Usuario 28",
           position: "Cargo 28",
           area: "Área 28",
@@ -109,7 +109,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 38",
         person: {
-          id: 125,
+          id: 14,
           name: "Usuario 25",
           position: "Cargo 25",
           area: "Área 25",
@@ -137,7 +137,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 38",
         person: {
-          id: 125,
+          id: 14,
           name: "Usuario 25",
           position: "Cargo 25",
           area: "Área 25",
@@ -165,7 +165,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 38",
         person: {
-          id: 125,
+          id: 14,
           name: "Usuario 25",
           position: "Cargo 25",
           area: "Área 25",
@@ -193,7 +193,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 13,
           name: "Julio Ernesto Alfaro G",
           position: "Gerente General",
           area: "Seguridad",
@@ -221,7 +221,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 13,
           name: "Julio Ernesto Alfaro G",
           position: "Gerente General",
           area: "Seguridad",
@@ -249,7 +249,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 13,
           name: "Julio Ernesto Alfaro G",
           position: "Gerente General",
           area: "Seguridad",
@@ -277,7 +277,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 12,
           name: "Carlos Valcarce M",
           position: "Gerente",
           area: "Logistica",
@@ -305,7 +305,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 12,
           name: "Carlos Valcarce M",
           position: "Gerente",
           area: "Logistica",
@@ -333,7 +333,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 12,
           name: "Carlos Valcarce M",
           position: "Gerente",
           area: "Logistica",
@@ -361,7 +361,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 11,
           name: "Valentin Capcha M",
           position: "Jefe Seguridad",
           area: "Seguridad",
@@ -389,7 +389,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 11,
           name: "Valentin Capcha M",
           position: "Jefe Seguridad",
           area: "Seguridad",
@@ -417,7 +417,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 11,
           name: "Valentin Capcha M",
           position: "Jefe Seguridad",
           area: "Seguridad",
@@ -445,7 +445,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 10,
           name: "Eduardo Arteaga G",
           position: "Tecnico De Aire Acondicionado",
           area: "I-com Attract",
@@ -473,7 +473,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 10,
           name: "Eduardo Arteaga G",
           position: "Tecnico De Aire Acondicionado",
           area: "I-com Attract",
@@ -501,7 +501,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 10,
           name: "Eduardo Arteaga G",
           position: "Tecnico De Aire Acondicionado",
           area: "I-com Attract",
@@ -529,7 +529,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 9,
           name: "Jaime Lopez Chau N",
           position: "Gerente",
           area: "Capacitacion Y Desarrollo",
@@ -557,7 +557,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 9,
           name: "Jaime Lopez Chau N",
           position: "Gerente",
           area: "Capacitacion Y Desarrollo",
@@ -585,7 +585,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 23",
         person: {
-          id: 104,
+          id: 9,
           name: "Jaime Lopez Chau N",
           position: "Gerente",
           area: "Capacitacion Y Desarrollo",
@@ -613,7 +613,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 20",
         person: {
-          id: 104,
+          id: 8,
           name: "Rosalynn Sharmila Echave M",
           position: "Jefe(a) De Comunicación Corporativa",
           area: "Gerencia General",
@@ -641,7 +641,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 20",
         person: {
-          id: 104,
+          id: 8,
           name: "Rosalynn Sharmila Echave M",
           position: "Jefe(a) De Comunicación Corporativa",
           area: "Gerencia General",
@@ -669,7 +669,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 20",
         person: {
-          id: 104,
+          id: 8,
           name: "Rosalynn Sharmila Echave M",
           position: "Jefe(a) De Comunicación Corporativa",
           area: "Gerencia General",
@@ -697,7 +697,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 19",
         person: {
-          id: 104,
+          id: 7,
           name: "Ruth Melina Ojeda V",
           position: "Analista Producción",
           area: "Analisis De Produccion",
@@ -725,7 +725,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 18",
         person: {
-          id: 104,
+          id: 7,
           name: "Ruth Melina Ojeda V",
           position: "Analista Producción",
           area: "Analisis De Produccion",
@@ -753,7 +753,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 17",
         person: {
-          id: 104,
+          id: 7,
           name: "Ruth Melina Ojeda V",
           position: "Analista Producción",
           area: "Analisis De Produccion",
@@ -781,7 +781,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 16",
         person: {
-          id: 104,
+          id: 6,
           name: "Carlos Tito Sinche C",
           position: "Asist Contable",
           area: "Contabilidad",
@@ -809,7 +809,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 15",
         person: {
-          id: 104,
+          id: 6,
           name: "Carlos Tito Sinche C",
           position: "Asist Contable",
           area: "Contabilidad",
@@ -837,7 +837,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 14",
         person: {
-          id: 104,
+          id: 6,
           name: "Carlos Tito Sinche C",
           position: "Asist Contable",
           area: "Contabilidad",
@@ -852,7 +852,7 @@ export class MessageService {
       {
         id: 13,
         person: {
-          id: 104,
+          id: 5,
           name: "Karen Danella Vera H",
           position: "Asistente De Proyectos",
           area: "Colorantes Naturales",
@@ -877,7 +877,7 @@ export class MessageService {
             idFollow: 1003,
             idPost: 11,
             person: {
-              id: 105,
+              id: 4,
               name: "Roberto Ramírez",
               position: "Supervisor de Calidad",
               area: "Calidad",
@@ -893,7 +893,7 @@ export class MessageService {
             idFollow: 1004,
             idPost: 11,
             person: {
-              id: 106,
+              id: 3,
               name: "Laura Castillo",
               position: "Analista Financiera",
               area: "Finanzas",
@@ -913,7 +913,7 @@ export class MessageService {
       {
         id: 12,
         person: {
-          id: 104,
+          id: 5,
           name: "Karen Danella Vera H",
           position: "Asistente De Proyectos",
           area: "Colorantes Naturales",
@@ -938,7 +938,7 @@ export class MessageService {
             idFollow: 1003,
             idPost: 11,
             person: {
-              id: 105,
+              id: 4,
               name: "Roberto Ramírez",
               position: "Supervisor de Calidad",
               area: "Calidad",
@@ -954,7 +954,7 @@ export class MessageService {
             idFollow: 1004,
             idPost: 11,
             person: {
-              id: 106,
+              id: 3,
               name: "Laura Castillo",
               position: "Analista Financiera",
               area: "Finanzas",
@@ -974,7 +974,7 @@ export class MessageService {
       {
         id: 11,
         person: {
-          id: 104,
+          id: 5,
           name: "Karen Danella Vera H",
           position: "Asistente De Proyectos",
           area: "Colorantes Naturales",
@@ -999,7 +999,7 @@ export class MessageService {
             idFollow: 1003,
             idPost: 11,
             person: {
-              id: 105,
+              id: 4,
               name: "Roberto Ramírez",
               position: "Supervisor de Calidad",
               area: "Calidad",
@@ -1015,7 +1015,7 @@ export class MessageService {
             idFollow: 1004,
             idPost: 11,
             person: {
-              id: 106,
+              id: 3,
               name: "Laura Castillo",
               position: "Analista Financiera",
               area: "Finanzas",
@@ -1035,7 +1035,7 @@ export class MessageService {
       {
         id: 10,
         person: {
-          id: 101,
+          id: 2,
           name: "Juan Pérez",
           position: "Gerente de Marketing",
           area: "Marketing",
@@ -1076,7 +1076,7 @@ export class MessageService {
             idFollow: 1002,
             idPost: 1,
             person: {
-              id: 103,
+              id: 1,
               name: "Luis Mendoza",
               position: "Analista de Datos",
               area: "Datos",
@@ -1096,7 +1096,7 @@ export class MessageService {
       {
         id: 9,
         person: {
-          id: 101,
+          id: 2,
           name: "Juan Pérez",
           position: "Gerente de Marketing",
           area: "Marketing",
@@ -1137,7 +1137,7 @@ export class MessageService {
             idFollow: 1002,
             idPost: 1,
             person: {
-              id: 103,
+              id: 1,
               name: "Luis Mendoza",
               position: "Analista de Datos",
               area: "Datos",
@@ -1157,7 +1157,7 @@ export class MessageService {
       {
         id: 8,
         person: {
-          id: 101,
+          id: 2,
           name: "Juan Pérez",
           position: "Gerente de Marketing",
           area: "Marketing",
@@ -1198,7 +1198,7 @@ export class MessageService {
             idFollow: 1002,
             idPost: 1,
             person: {
-              id: 103,
+              id: 1,
               name: "Luis Mendoza",
               position: "Analista de Datos",
               area: "Datos",
@@ -1218,7 +1218,7 @@ export class MessageService {
       {
         id: 7,
         person: {
-          id: 101,
+          id: 2,
           name: "Juan Pérez",
           position: "Gerente de Marketing",
           area: "Marketing",
@@ -1259,7 +1259,7 @@ export class MessageService {
             idFollow: 1002,
             idPost: 1,
             person: {
-              id: 103,
+              id: 1,
               name: "Luis Mendoza",
               position: "Analista de Datos",
               area: "Datos",
@@ -1279,7 +1279,7 @@ export class MessageService {
       {
         id: 6,
         person: {
-          id: 101,
+          id: 2,
           name: "Juan Pérez",
           position: "Gerente de Marketing",
           area: "Marketing",
@@ -1320,7 +1320,7 @@ export class MessageService {
             idFollow: 1002,
             idPost: 1,
             person: {
-              id: 103,
+              id: 1,
               name: "Luis Mendoza",
               position: "Analista de Datos",
               area: "Datos",
@@ -1340,7 +1340,7 @@ export class MessageService {
       {
         id: 5,
         person: {
-          id: 101,
+          id: 2,
           name: "Juan Pérez",
           position: "Gerente de Marketing",
           area: "Marketing",
@@ -1381,7 +1381,7 @@ export class MessageService {
             idFollow: 1002,
             idPost: 1,
             person: {
-              id: 103,
+              id: 1,
               name: "Luis Mendoza",
               position: "Analista de Datos",
               area: "Datos",
@@ -1401,7 +1401,7 @@ export class MessageService {
       {
         id: 4,
         person: {
-          id: 101,
+          id: 2,
           name: "Juan Pérez",
           position: "Gerente de Marketing",
           area: "Marketing",
@@ -1442,7 +1442,7 @@ export class MessageService {
             idFollow: 1002,
             idPost: 1,
             person: {
-              id: 103,
+              id: 1,
               name: "Luis Mendoza",
               position: "Analista de Datos",
               area: "Datos",
@@ -1462,7 +1462,7 @@ export class MessageService {
       {
         id: 3,
         person: {
-          id: 101,
+          id: 2,
           name: "Juan Pérez",
           position: "Gerente de Marketing",
           area: "Marketing",
@@ -1503,7 +1503,7 @@ export class MessageService {
             idFollow: 1002,
             idPost: 1,
             person: {
-              id: 103,
+              id: 1,
               name: "Luis Mendoza",
               position: "Analista de Datos",
               area: "Datos",
@@ -1523,7 +1523,7 @@ export class MessageService {
       {
         id: 2,
         person: {
-          id: 101,
+          id: 2,
           name: "Juan Pérez",
           position: "Gerente de Marketing",
           area: "Marketing",
@@ -1564,7 +1564,7 @@ export class MessageService {
             idFollow: 1002,
             idPost: 1,
             person: {
-              id: 103,
+              id: 1,
               name: "Luis Mendoza",
               position: "Analista de Datos",
               area: "Datos",
@@ -1584,7 +1584,7 @@ export class MessageService {
       {
         id: 1,
         person: {
-          id: 101,
+          id: 2,
           name: "Juan Pérez",
           position: "Gerente de Marketing",
           area: "Marketing",
@@ -1625,7 +1625,7 @@ export class MessageService {
             idFollow: 1002,
             idPost: 1,
             person: {
-              id: 103,
+              id: 1,
               name: "Luis Mendoza",
               position: "Analista de Datos",
               area: "Datos",
@@ -1644,41 +1644,59 @@ export class MessageService {
       },
     ];
 
-    // Observables para el filtro
-  private filterCriteriaSubject = new BehaviorSubject<any>(null);
-  filterCriteria$ = this.filterCriteriaSubject.asObservable();
+    private tempFilterCriteria: Partial<FilterCriteria> | null = null;
 
-  constructor() { }
-
-  getPosts(): Post[] {
-    return this.posts;
-  }
-
-  setFilterCriteria(criteria: any) {
-    this.filterCriteriaSubject.next(criteria);
-  }
-
-  setFilterPersonalMessage(criteria: any): Post[] {
-    console.log(criteria); // Verifica el filtro recibido
-  
-    // Actualizar el BehaviorSubject con el nuevo filtro
-    this.filterCriteriaSubject.next(criteria);
-  
-    // Obtener los criterios actuales desde el BehaviorSubject
-    const currentCriteria = this.filterCriteriaSubject.value;
-  
-    // Verificar que se haya recibido un criterio de filtro válido
-    if (!currentCriteria) {
-      return this.posts; // Si no hay filtro, devolver todos los posts
+    private filteredPostsSubject = new BehaviorSubject<Post[]>([]);  // Cambiado a Post[]
+filteredPosts$ = this.filteredPostsSubject.asObservable();
+    
+    constructor() { }
+    
+    getPosts(): Post[] {
+      return this.posts;
     }
-  
-    // Filtrar los posts según el personId
-    return this.posts.filter(post => {
-      const personIdMatches = post.person.id === currentCriteria.personId;
-  
-      // Agrega otras condiciones de filtro según sea necesario
-      return personIdMatches;
-    });
-  }
-  
+    
+    // Guardar filtros temporales (desde Accordion y Filter)
+    setTempFilterCriteria(criteria: Partial<FilterCriteria>) {
+      if (!this.tempFilterCriteria) {
+        this.tempFilterCriteria = {}; // Inicializar si no existe
+      }
+    
+      // Combinamos los criterios previos con los nuevos valores proporcionados sin sobrescribir todo
+      this.tempFilterCriteria = { ...this.tempFilterCriteria, ...criteria };
+    
+      // Actualizamos los posts filtrados según los nuevos criterios
+      this.applyFilterAndEmit();
+    }
+    
+    // Obtener filtros temporales (desde FilterComponent)
+    getTempFilterCriteria(): Partial<FilterCriteria> | null {
+      return this.tempFilterCriteria;
+    }
+    
+    // Aplicar el filtro a los posts y emitir los resultados
+    private applyFilterAndEmit() {
+      if (!this.tempFilterCriteria) {
+        return; // Si no hay criterios, no hace nada
+      }
+    
+      // Filtrar los posts según los criterios completos
+      const filteredPosts = this.posts.filter(post => {
+        return (
+          (this.tempFilterCriteria?.subject === undefined || post.subject === this.tempFilterCriteria.subject) &&
+          (this.tempFilterCriteria?.seccion === undefined || post.seccion === this.tempFilterCriteria.seccion) &&
+          (this.tempFilterCriteria?.paisId === undefined || post.pais.some(p => p.id === this.tempFilterCriteria?.paisId)) &&
+          (this.tempFilterCriteria?.subMenuId === undefined || post.pais.some(p => p.subMenus.some(s => s.id === this.tempFilterCriteria?.subMenuId))) &&
+          (this.tempFilterCriteria?.personId === undefined || post.person.id === this.tempFilterCriteria.personId) &&
+          (this.tempFilterCriteria?.noticiaId === undefined || post.id.toString().includes(this.tempFilterCriteria.noticiaId.toString())) &&
+      (this.tempFilterCriteria?.startDate === undefined || new Date(post.createdAt) >= new Date(this.tempFilterCriteria.startDate)) &&
+          (this.tempFilterCriteria?.endDate === undefined || new Date(post.createdAt) <= new Date(this.tempFilterCriteria.endDate))
+        );
+      });
+    
+      // Emitir los posts filtradossdfdsfssss
+      this.filteredPostsSubject.next(filteredPosts);
+    
+      console.log('Posts filtrados emitidos:', filteredPosts);
+    }
+    
 }

@@ -2,24 +2,39 @@
     <div class="grid gap-x-8 gap-y-1 grid-cols-1 sm:grid-cols-4 md:grid-cols-6">
         <div class="sm:col-span-1 col-start-1 sm:col-start-1">
             <div class="flex mt-2">
-                <input type="text" id="idFilter" placeholder="Nro Noticia"
+                <input type="text" id="idFilter"  [(ngModel)]="idFilter" placeholder="Nro Noticia"
                     class="mt-2 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
         </div>
         <div class="sm:col-span-3 col-start-1 sm:col-start-2">
             <!-- <label for="dateFilter" class="block text-gray-700">Filtro por Rango de Fechas</label> -->
             <div class="flex mt-2">
-                <input type="date" id="startDate"
-                    class="w-1/2 mt-2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <input type="date" id="endDate"
-                    class="w-1/2 mt-2 p-2 ml-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
+                <!-- Primer calendario -->
+                <input
+                  type="date"
+                  id="startDate"
+                  [(ngModel)]="startDate"
+                  (change)="onStartDateChange()"
+                  class="w-1/2 mt-2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              
+                <!-- Segundo calendario -->
+                <input
+                  type="date"
+                  id="endDate"
+                  [(ngModel)]="endDate"
+                  [min]="startDate" 
+                  [disabled]="!startDate" 
+                  class="w-1/2 mt-2 p-2 ml-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              
         </div>
         <div class="sm:col-span-4 col-start-1 sm:col-start-3 md:col-start-5 text-end">
             <div class="flex mt-2 justify-end sm:justify-end md:justify-between lg:mr-20">
 
                 <div class="mt-1">
-                    <button class="w-12 text-white btn btn-primary">
+                    <button (click)="applySecondFilter()" class="w-12 text-white btn btn-primary">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
@@ -29,7 +44,7 @@
                     </button>
                 </div>
                 <div class="mt-1 ml-4 ">
-                    <button class="w-50 text-white btn btn-primary">
+                    <button (click)="loadTempFilter()" class="w-50 text-white btn btn-primary">
                         Mis Mensajes
                     </button>
                 </div>

@@ -3,13 +3,13 @@
   (newPostCreated)="handleNewPost($event)"
 ></app-posts>
 
-  <div *ngFor="let post of posts">
-    <app-cards  *ngIf="!post.subject"
-      [post]="post"
-      (addReply)="addReply(post.id, $event)"
-      (addFollow)="addFollowToPost(post.id, $event)"
-    ></app-cards>
-  </div>
+<div *ngFor="let post of filteredPosts">
+  <app-cards *ngIf="!post.subject"
+    [post]="post"
+    (addReply)="addReply(post.id, $event)"
+    (addFollow)="addFollowToPost(post.id, $event)">
+  </app-cards>
+</div>
 </div>
 
 

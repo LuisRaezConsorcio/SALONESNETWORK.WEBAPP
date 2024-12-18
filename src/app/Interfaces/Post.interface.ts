@@ -53,4 +53,9 @@ export interface FilterCriteria {
   paisId: number;
   subMenuId?: number;
   tercerNivelId?: number;
+  personId?:number;
+  // solo aplicables con el boton de filtro
+  noticiaId?: number,
+  startDate?: string; // Cambiar de string a Date
+  endDate?: string; 
 }

@@ -195,16 +195,6 @@ export class PostsComponent implements OnInit{
     this.selectedFiles.splice(index, 1);
   }
 
-  // submitPost(): void {
-  //   // const postData = {
-  //   //   content: this.editorContent,
-  //   //   tags: this.tags,
-  //   //   files: this.selectedFiles
-  //   // };
-  //   console.log(this.editorContent);
-  //   // Aquí podrías enviar los datos a tu API
-  // }
-
   submitPost(){
     if (!this.editorContent.trim()) {
       console.warn('El contenido no puede estar vacío.');
@@ -216,37 +206,7 @@ export class PostsComponent implements OnInit{
 
     }
 
-    
-    // const newPost: Post = {
-    //   id: this.nextId++, // Genera un ID único
-    //   title: 'Nuevo Post', // Puedes cambiar esto a un título dinámico
-    //   content: this.editorContent,
-    //   person: {
-    //     id: 1, // ID de la persona que crea el post
-    //     name: 'Juan Pérez',
-    //     position: 'Analista',
-    //     area: 'Sistemas',
-    //     numero: '',
-    //     correo: ''
-    //   },
-    //   followUps: [], // Inicialmente vacío
-    //   replyTo: null, // No es una respuesta a ningún post
-    //   replies: [], // Sin respuestas al inicio
-    //   createdAt: new Date()
-    // };
-
-    // Simula agregar el nuevo post a la lista de posts (puedes reemplazar esto con una llamada a la API)
-    
-    // console.log('Nuevo post creado:', newPost);
-
-    // this.newPostCreated.emit(this.editorContent);
-    // this.posts.unshift(newPost);
-
-    // // Limpia el contenido del editor
-    // this.editorContent = '';
-    // this.tags = []; // Reinicia las etiquetas si estás usándolas
-    // this.selectedFiles = []; // Reinicia los archivos seleccionados si es necesario
-
+  
   }
 
 

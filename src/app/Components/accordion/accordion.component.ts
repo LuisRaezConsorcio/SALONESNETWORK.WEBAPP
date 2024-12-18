@@ -16,18 +16,24 @@ export class AccordionComponent implements OnInit {
 
   @Output() filterApplied = new EventEmitter<FilterCriteria>();
 
-  sendFilter(subject:boolean, seccionid:number, countryid:number, submenuid?:number, tercernivelid?:number) {
+ 
 
-    let filterCriteria: FilterCriteria = {
-      subject: subject,
+   // Envía criterios seleccionados directamente al servicio
+   sendFilter(subject: boolean, seccionid: number, countryid: number, submenuid?: number, tercernivelid?: number, personid?: number, noticiaId?: number, startDate?: string, endDate?: string) {
+    const filterCriteria: FilterCriteria = {
+      subject,
       seccion: seccionid,
       paisId: countryid,
       subMenuId: submenuid,
-      tercerNivelId: tercernivelid
+      tercerNivelId: tercernivelid,
+      personId: personid, // Añadir el personId
+      noticiaId: noticiaId,
+      startDate: startDate,
+      endDate: endDate,
     };
-    console.log(filterCriteria)
-    this.filterApplied.emit(filterCriteria); 
-    this.messageService.setFilterCriteria(filterCriteria);
+    this.messageService.setTempFilterCriteria(filterCriteria); // Método temporal
+  
+    //this.messageService.setFilterCriteria(filterCriteria);
   }
 
   menu = [
@@ -217,13 +223,9 @@ export class AccordionComponent implements OnInit {
         {
           let id=0
           this.sendFilter(true, seccionid, countryid, submenuid, id);
-          //console.log(true, seccionid, countryid, submenuid, id)
-
         }
         else{
           this.sendFilter(true, seccionid, countryid, submenuid, tercernivelid);
-          //console.log(true, seccionid, countryid, submenuid, tercernivelid)
-
         }
     }
   }
