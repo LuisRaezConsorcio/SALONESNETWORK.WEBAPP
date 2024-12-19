@@ -63,8 +63,8 @@ export class MessagesComponent implements OnInit {
       id: this.maxId++, // ID único
       content: postContent.trim(),
       person: this.getCurrentUser(),
-      subject: false,
-      seccion: 0,
+      subject: true,
+      seccion: 1,
       pais: this.getDefaultPais(),
       followUps: [],
       replyTo: null,

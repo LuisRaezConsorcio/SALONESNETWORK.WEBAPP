@@ -782,9 +782,9 @@ export class MessageService {
         content: "Contenido de prueba 16",
         person: {
           id: 6,
-          name: "Carlos Tito Sinche C",
-          position: "Asist Contable",
-          area: "Contabilidad",
+          name: "Carlos Palomino",
+          position: "Gerente de Sistemas",
+          area: "Sistemas",
           numero: "9871234567",
           correo: "Carlos.Sinche@carolina-peru.com"
         },
@@ -810,9 +810,9 @@ export class MessageService {
         content: "Contenido de prueba 15",
         person: {
           id: 6,
-          name: "Carlos Tito Sinche C",
-          position: "Asist Contable",
-          area: "Contabilidad",
+          name: "Carlos Palomino",
+          position: "Gerente de Sistemas",
+          area: "Sistemas",
           numero: "9871234567",
           correo: "Carlos.Sinche@carolina-peru.com"
         },
@@ -838,9 +838,9 @@ export class MessageService {
         content: "Contenido de prueba 14",
         person: {
           id: 6,
-          name: "Carlos Tito Sinche C",
-          position: "Asist Contable",
-          area: "Contabilidad",
+          name: "Carlos Palomino",
+          position: "Gerente de Sistemas",
+          area: "Sistemas",
           numero: "9871234567",
           correo: "Carlos.Sinche@carolina-peru.com"
         },
@@ -1676,7 +1676,9 @@ filteredPosts$ = this.filteredPostsSubject.asObservable();
     
     // Aplicar el filtro a los posts y emitir los resultados
     private applyFilterAndEmit() {
+      console.log(this.tempFilterCriteria.personId)
       if (!this.tempFilterCriteria) {
+        console.log('cagaste')
         return; // Si no hay criterios, no hace nada
       }
     

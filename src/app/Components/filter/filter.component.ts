@@ -4,6 +4,7 @@ import { SharedStateService } from '../../Services/shared-state.service';
 import { FilterCriteria } from '../../Interfaces/Post.interface';
 import { MessageService } from '../../Services/message.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BreadcrumbsService } from '../../Services/breadcrumbs.service';
 
 @Component({
   selector: 'app-filter',
@@ -11,9 +12,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.css'
 })
-export class FilterComponent {
+export class FilterComponent  implements OnInit {
+  title: string = '';
+  title2: string = '';
+  activacion: boolean = true;
 
   // Variables para los campos de filtro
+  boton:string=''
   idFilter: number = 0;
   startDate: string | null = null;
   endDate: string | null = null;
@@ -27,10 +32,28 @@ export class FilterComponent {
 
   constructor(
     private sharedStateService: SharedStateService, 
-    private messageService: MessageService, 
+    private messageService: MessageService,
+    private breadcrumbsService: BreadcrumbsService, 
     private activatedRoute: ActivatedRoute, 
     private router: Router
   ) {}
+
+  ngOnInit(): void {
+     // Suscribirse al título
+     this.breadcrumbsService.titleb$.subscribe((title) => {
+      this.title = title;
+    });
+
+    // Suscribirse al título
+    this.breadcrumbsService.title2$.subscribe((title2) => {
+      this.title2 = title2;
+    });
+
+    // Suscribirse al estado de activación
+    this.breadcrumbsService.activacion$.subscribe((activacion) => {
+      this.activacion = activacion;
+    });
+  }
 
   contactos = [
     { id: 1, nombreCompleto: 'Juan Pérez', telefono: '+51 123 456 789', correo: 'juan.perez@ejemplo.com', cargo: 'Gerente General' },
@@ -46,6 +69,14 @@ export class FilterComponent {
     return this.router.url.includes('Noticias');
   }
 
+  private isPublicacionesRoute(): boolean {
+    return this.router.url.includes('Publicaciones');
+  }
+
+  private isAsuntosRoute(): boolean {
+    return this.router.url.includes('Asuntos');
+  }
+
   onStartDateChange(): void {
     // Si se cambia la fecha inicial, limpia la fecha final si ya no es válida
     if (this.endDate && this.startDate && new Date(this.endDate) < new Date(this.startDate)) {
@@ -58,28 +89,6 @@ export class FilterComponent {
     this.applyFilter()
   }
 
-  applyFilterForNoticias() {
-    if (this.filterCriteria) {
-      // Ajustar los filtros según sea necesario para Noticias
-      const updatedCriteria: Partial<FilterCriteria> = {
-        subject:false,
-        personId:5,
-        noticiaId: this.filterCriteria.noticiaId,
-        startDate: this.filterCriteria.startDate,
-        endDate: this.filterCriteria.endDate,
-      };
-  
-      // Actualizar los criterios y pasarlos al servicio
-      const combinedCriteria: Partial<FilterCriteria> = {
-        ...this.filterCriteria,
-        ...updatedCriteria,
-      };
-      this.messageService.setTempFilterCriteria(combinedCriteria);
-    }
-  }
-
-  
-
   onTogglePost(): void {
     this.sharedStateService.toggleShowPost();
     // this.updateButtonLabel();
@@ -87,6 +96,7 @@ export class FilterComponent {
 
   // Aplicar filtro definitivo al servicio
   applyFilter() {
+    console.log('holi')
     if (this.filterCriteria) {
       // Verificar si estamos en la ruta de Noticias
       if (this.isNoticiasRoute()) {
@@ -100,8 +110,29 @@ export class FilterComponent {
         this.filterCriteria.noticiaId = undefined; // Limpiar noticiaId
         this.filterCriteria.startDate = undefined;
         this.filterCriteria.endDate = undefined;
+      console.log(this.filterCriteria)
+
+
   
-      } else {
+      } 
+      
+      if(this.isPublicacionesRoute()) {
+        // Aplicar filtros generales para Mensajes
+        this.filterCriteria.subject=undefined;
+
+        this.filterCriteria.seccion=undefined,
+        this.filterCriteria.paisId=undefined,
+        this.filterCriteria.subMenuId=undefined,
+        this.filterCriteria.tercerNivelId=undefined,
+        this.filterCriteria.personId = 6; // Asignar un personId específico si es necesario
+        this.filterCriteria.noticiaId = undefined; // Limpiar noticiaId
+        this.filterCriteria.startDate = undefined;
+        this.filterCriteria.endDate = undefined;
+      console.log(this.filterCriteria)
+
+      }
+
+      if(this.isAsuntosRoute()) {
         // Aplicar filtros generales para Mensajes
         this.filterCriteria.subject=true;
 
@@ -112,6 +143,7 @@ export class FilterComponent {
       }
   
       // Pasar los filtros al servicio
+      console.log(this.filterCriteria)
       this.messageService.setTempFilterCriteria(this.filterCriteria);
     }
   }
@@ -123,35 +155,49 @@ export class FilterComponent {
       // Verificar la ruta y aplicar los filtros correspondientes
       const updatedCriteria: Partial<FilterCriteria> = this.isNoticiasRoute()
         ? {
-          subject:false,
-          seccion:undefined,
-          paisId:undefined,
-          subMenuId:undefined,
-          tercerNivelId:undefined,
+            subject: false,
+            seccion: undefined,
+            paisId: undefined,
+            subMenuId: undefined,
+            tercerNivelId: undefined,
             noticiaId: this.idFilter ? Number(this.idFilter) : undefined,
             startDate: this.startDate ? this.startDate : undefined,
             endDate: this.endDate ? this.endDate : undefined,
           }
+        : this.isPublicacionesRoute()
+        ? {
+          subject: undefined,
+          personId:6,
+          seccion: undefined,
+          paisId: undefined,
+          subMenuId: undefined,
+          tercerNivelId: undefined,
+          noticiaId: this.idFilter ? Number(this.idFilter) : undefined,
+          startDate: this.startDate ? this.startDate : undefined,
+          endDate: this.endDate ? this.endDate : undefined,
+            // Puedes agregar otros filtros específicos para Publicaciones aquí
+          }
         : {
-          subject:true,
+            subject: true, // Ajuste general para otras rutas
             personId: undefined,
             noticiaId: this.idFilter ? Number(this.idFilter) : undefined,
             startDate: this.startDate ? this.startDate : undefined,
             endDate: this.endDate ? this.endDate : undefined,
           };
-
+  
       // Combinamos los criterios anteriores con los nuevos
       const combinedCriteria: Partial<FilterCriteria> = {
         ...this.filterCriteria,
         ...updatedCriteria,
       };
-
+  
       // Pasamos los criterios combinados al servicio
       this.messageService.setTempFilterCriteria(combinedCriteria);
     } else {
       console.error('filterCriteria no está inicializado correctamente');
     }
   }
+  
 
   sendFilter(
     subject: boolean,

@@ -773,7 +773,7 @@ posts: Post[] = [
   content: "Contenido de prueba 16",
   person: {
       id: 104,
-      name: "Carlos Tito Sinche C",
+      name: "Carlos Palomino",
       position: "Asist Contable",
       area: "Contabilidad",
       numero: "9871234567",
@@ -801,7 +801,7 @@ posts: Post[] = [
   content: "Contenido de prueba 15",
   person: {
       id: 104,
-      name: "Carlos Tito Sinche C",
+      name: "Carlos Palomino",
       position: "Asist Contable",
       area: "Contabilidad",
       numero: "9871234567",
@@ -829,7 +829,7 @@ posts: Post[] = [
     content: "Contenido de prueba 14",
     person: {
       id: 104,
-      name: "Carlos Tito Sinche C",
+      name: "Carlos Palomino",
       position: "Asist Contable",
       area: "Contabilidad",
       numero: "9871234567",

@@ -32,6 +32,12 @@ export default [
                     },
                 ]
             },
+            {
+                path: 'Publicaciones',
+                data: { breadcrumb: 'Publicaciones' },
+                loadComponent: () =>
+                    import('./misposts/misposts.component').then((m) => m.MispostsComponent)
+            },
         ]
     },
 

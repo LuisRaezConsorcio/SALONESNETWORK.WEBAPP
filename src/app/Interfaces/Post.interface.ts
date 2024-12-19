@@ -48,9 +48,9 @@ export interface TercerNivel{
 }
 
 export interface FilterCriteria {
-  subject: boolean;
-  seccion: number;
-  paisId: number;
+  subject?: boolean;
+  seccion?: number;
+  paisId?: number;
   subMenuId?: number;
   tercerNivelId?: number;
   personId?:number;

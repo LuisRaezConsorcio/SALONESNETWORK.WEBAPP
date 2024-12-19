@@ -1,39 +1,33 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GLOBAL_IMPORTS } from '../../../global-imports';
 import { CardsComponent } from '../../../Components/cards/cards.component';
-import { FollowUp, Post } from './../../../Interfaces/Post.interface'; // Ajusta la ruta según sea necesario
-import { PostsComponent } from '../../../Components/posts/posts.component';
+import { FollowUp, Post } from '../../../Interfaces/Post.interface';
 import { SharedStateService } from '../../../Services/shared-state.service';
 import { MessageService } from '../../../Services/message.service';
 
-
 @Component({
-  selector: 'app-news',
-  imports: [GLOBAL_IMPORTS, CardsComponent, PostsComponent],
-  templateUrl: './news.component.html',
-  styleUrl: './news.component.css'
+  selector: 'app-misposts',
+  imports: [GLOBAL_IMPORTS, CardsComponent],
+  templateUrl: './misposts.component.html',
+  styleUrl: './misposts.component.css'
 })
-export class NewsComponent implements OnInit {
+export class MispostsComponent implements OnInit {
 
   //posts: Post[] = []; // Lista de posts
   @Input() post: Post[] = [];
   filteredPosts: Post[] = [];
-  showPost = false;
   maxId = 0;
 
-  constructor(private sharedStateService: SharedStateService,
+  constructor(
     private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.post = this.messageService.getPosts();
 
-    this.sharedStateService.showPost$.subscribe((value) => {
-      this.showPost = value;
-    });
-    this.maxId = this.getMaxId(this.post) + 1;
+
 
     // Aplicar el filtro directamente al obtener los posts
-    
+    this.applyFilter()
     this.messageService.filteredPosts$.subscribe((filteredPosts: Post[]) => {
       this.filteredPosts = filteredPosts;
     });
@@ -42,48 +36,8 @@ export class NewsComponent implements OnInit {
   }
 
   applyFilter() {
-    this.filteredPosts = this.post.filter(post => !post.subject);
+    this.filteredPosts = this.post.filter(post => post.person.id===6);
   }
-
-  handleNewPost(post: string): void {
-
-    const newPost: Post = {
-      id: this.maxId++, // ID único
-      content: post.trim(),
-      person: {
-        id: 16,
-        name: 'CARLOS PALOMINO',
-        position: 'Gerente',
-        area: 'Sistemas',
-        numero: '',
-        correo: 'carlos.palomino@consorcio-carolina.com',
-      },
-      subject: false, // Asumimos que es una respuesta, no un tema principal
-      seccion: 0, // Puedes reemplazarlo con un valor válido según tu lógica
-      pais: [
-        {
-          id: 1, // Puedes ajustar según el país correspondiente
-          name: 'Peru',
-          subMenus:
-            [
-              {
-                id: 1,
-                name: "Fundo Don Edmundo",
-                tercerNivel: []
-              }
-            ]
-        }
-      ],
-      followUps: [],
-      replyTo: null,
-      replies: [],
-      createdAt: new Date()
-    };
-
-    this.post.unshift(newPost);
-    
-  }
-
 
   getMaxId = (posts: Post[]): number => {
     return posts.reduce((maxId, post) => {

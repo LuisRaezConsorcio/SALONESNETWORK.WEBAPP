@@ -2,9 +2,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CKEditorCloudConfig, CKEditorCloudResult, CKEditorModule, loadCKEditorCloud } from '@ckeditor/ckeditor5-angular';
 import { ClassicEditor, EditorConfig } from 'ckeditor5';
 import { GLOBAL_IMPORTS } from '../../global-imports';
+import { SharedStateService } from '../../Services/shared-state.service';
 
 const LICENSE_KEY =
-  'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3MzQyMjA3OTksImp0aSI6ImJlM2I4OGQ2LWIyZjUtNGY5OS1iNDhiLTRkYWQ0NmIwYWViMyIsImxpY2Vuc2VkSG9zdHMiOlsiKi53ZWJjb250YWluZXIuaW8iLCIqLmpzaGVsbC5uZXQiLCIqLmNzcC5hcHAiLCJjZHBuLmlvIiwiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIiwic2giXSwibGljZW5zZVR5cGUiOiJldmFsdWF0aW9uIiwidmMiOiI5ZmNlYjI5ZCJ9.Loaub6V2_X9gLTPYVp6kJ5Uxfx8Xa0R1yOj3gvOkMv89euNzGCiMHD1Nh6plahOWY2_csuyD63founYZcLajVw';
+	'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3MzQ3MzkxOTksImp0aSI6ImVlMGIyNzkyLTA1YWMtNDgzNS1iOTk4LWYzNTNjNjNmYmVlOCIsImxpY2Vuc2VkSG9zdHMiOlsiKi53ZWJjb250YWluZXIuaW8iLCIqLmpzaGVsbC5uZXQiLCIqLmNzcC5hcHAiLCJjZHBuLmlvIiwiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIiwic2giXSwibGljZW5zZVR5cGUiOiJldmFsdWF0aW9uIiwidmMiOiI1OGRkNzhkMiJ9.yDZ36_nT7xerhE3DS7zKbGw8trywz8rZV9l6nw7mY3wJRD92BW4SA-euGwYXc8vnXYXEYdfCP16SNF1ufNZeQg';
 
 
 
@@ -26,6 +27,10 @@ export class PostsComponent implements OnInit{
   public config: EditorConfig | null = null;
   
   editorContent: string = ''; // Almacena el contenido del editor
+
+  constructor(
+      private sharedStateService: SharedStateService
+    ) {}
 
   public ngOnInit(): void {
     loadCKEditorCloud(cloudConfig).then(this._setupEditor.bind(this));
@@ -203,6 +208,7 @@ export class PostsComponent implements OnInit{
     else{
       this.newPostCreated.emit(this.editorContent);
       this.editorContent = '';
+      this.sharedStateService.toggleShowPost();
 
     }
 

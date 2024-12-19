@@ -1,0 +1,6 @@
+<div class="news-feed">
+    <div *ngFor="let post of filteredPosts">
+      <app-cards [post]="post" (addReply)="addReply(post.id, $event)"
+        (addFollow)="addFollowToPost(post.id, $event)"></app-cards>
+    </div>
+  </div>
