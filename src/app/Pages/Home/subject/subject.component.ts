@@ -28,12 +28,25 @@ export class SubjectComponent implements OnInit{
   
 
   ngOnInit(): void {
-    // Verificar si estamos en la ruta 'Messages' cuando se cargue el componente
-    this.dataTransfer.data$.subscribe((data) => {
-      if (data) {
-        this.receivedData = data; // Asignar los datos recibidos
-      }
-    });
+
+    const params = this.dataTransfer.getFilterParams();
+
+    if (params) {
+      const { seccion, seccionid, country, countryid, submenu, submenuid, tercernivel, tercernivelid } = params;
+      
+      // Llamar al método selectTitles con los parámetros obtenidos
+      this.dataTransfer.selectTitles(
+        seccion,
+        seccionid,
+        country,
+        countryid,
+        submenu,
+        submenuid,
+        tercernivel,
+        tercernivelid
+      );
+    }
+    
 
     this.checkIfMessagesRoute();
 

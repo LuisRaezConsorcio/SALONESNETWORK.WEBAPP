@@ -41,6 +41,7 @@ export class MessagesComponent implements OnInit {
     this.messageService.filteredPosts$.subscribe((filteredPosts: Post[]) => {
       this.filteredPosts = filteredPosts;
     });
+    
   }
 
   // Manejo de la creación de un nuevo post

@@ -6,6 +6,7 @@ import { filter } from 'rxjs';
 import { FilterComponent } from '../../../Components/filter/filter.component';
 import { BreadcrumbsComponent } from '../../../Components/breadcrumbs/breadcrumbs.component';
 import { BreadcrumbsService } from '../../../Services/breadcrumbs.service';
+import { DataTransferService } from '../../../Services/data-transfer.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit{
 
   ocultarScroll: boolean = false; // Propiedad para las clases del div
 
-  constructor(private router: Router, private route: ActivatedRoute,private breadcrumbsService: BreadcrumbsService) {}
+  constructor(private router: Router, private route: ActivatedRoute,private breadcrumbsService: BreadcrumbsService, private datatransfernService:DataTransferService) {}
 
   ngOnInit(): void {
     //Escuchar cambios en las rutas
@@ -45,6 +46,7 @@ export class HomeComponent implements OnInit{
         title2='Nuevo Mensaje';
 
         activacion = true;
+        this.clear();
         break;
       case 3:
         title = 'Mis Publicaciones';
@@ -55,8 +57,13 @@ export class HomeComponent implements OnInit{
     this.breadcrumbsService.setStringList(title,title2,activacion);
   }
 
+  clear():void{
+    this.datatransfernService.clearFilterParams();
+  }
 
-
+  onRouteChange(route: number): void {
+    this.setStringsForRoute(route);  // Llamar al método con el valor recibido
+  }
   
 
 }

@@ -6,16 +6,32 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataTransferService {
 
-  private dataStore = new BehaviorSubject<any>(null); // Almacén de datos temporal
-  data$ = this.dataStore.asObservable(); // Observable para que otros componentes se suscriban
+  private filterParamsSubject = new BehaviorSubject<any>(null);  // Almacenar los parámetros
+  filterParams$ = this.filterParamsSubject.asObservable();  // Observable para suscribirse
 
-  setData(data: any): void {
-    this.dataStore.next(data); // Establece nuevos datos
+  constructor() {}
+
+  // Método para almacenar los parámetros
+  setFilterParams(params: any): void {
+    this.filterParamsSubject.next(params);
   }
 
-  clearData(): void {
-    this.dataStore.next(null); // Limpia los datos
+  // Método para obtener los parámetros almacenados
+  getFilterParams(): any {
+    return this.filterParamsSubject.value;
   }
 
-  constructor() { }
+  // Método selectTitles con los parámetros
+  selectTitles(seccion: string, seccionid: number, country: string, countryid: number, submenu?: string, submenuid?: number, tercernivel?: string, tercernivelid?: number): void {
+
+    const params = { seccion, seccionid, country, countryid, submenu, submenuid, tercernivel, tercernivelid };
+    this.setFilterParams(params);  // Guardar los parámetros en el servicio
+
+  }
+
+  clearFilterParams(): void {
+    this.filterParamsSubject.next(null);  // Limpiar los parámetros
+  }
+
+  
 }

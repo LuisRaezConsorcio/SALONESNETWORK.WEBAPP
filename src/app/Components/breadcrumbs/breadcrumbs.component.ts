@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BreadcrumbsService } from '../../Services/breadcrumbs.service';
 import { filter } from 'rxjs';
 import { GLOBAL_IMPORTS } from '../../global-imports';
+import { DataTransferService } from '../../Services/data-transfer.service';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -20,7 +21,8 @@ export class BreadcrumbsComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private breadcrumbService: BreadcrumbsService
+    private breadcrumbService: BreadcrumbsService,
+    private datatransfernService: DataTransferService
   ) {}
 
   
@@ -52,5 +54,9 @@ export class BreadcrumbsComponent implements OnInit {
   private updateTitleVisibility() {
     const currentRoute = this.activatedRoute.snapshot.firstChild?.routeConfig?.path;
     this.isTitleVisible = currentRoute === 'Mensajes' || currentRoute === 'Asuntos';
+  }
+
+  clear():void{
+    this.datatransfernService.clearFilterParams();
   }
 }

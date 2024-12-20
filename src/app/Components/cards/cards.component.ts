@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FilterCriteria, FollowUp, Post } from '../../Interfaces/Post.interface';
 import { MessageService } from '../../Services/message.service';
 import { DataTransferService } from '../../Services/data-transfer.service';
+import { BreadcrumbsService } from '../../Services/breadcrumbs.service';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class CardsComponent implements OnInit {
   replyContent: string = '';
   openReply: boolean = false;
   openFollow: boolean = false;
-
+  activacion: boolean = false;
   //posts: Post[] = [];
 
 
@@ -38,17 +39,49 @@ export class CardsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private messageService: MessageService, private dataTransfer: DataTransferService
+    private messageService: MessageService, private dataTransfer: DataTransferService,
+    private breadcrumbsService:BreadcrumbsService
   ) { }
 
   public ngOnInit(): void {
 
-
+    this.breadcrumbsService.activacion$.subscribe((activacion) => {
+      this.activacion = activacion;
+    });
   }
 
-  navigateToSubject(post: any): void {
-    this.dataTransfer.setData(post); // Enviar los datos al servicio
-    this.router.navigate(['/Asuntos']); // Redirigir al componente `subject`
+  navigateToSubject(idseccion:number,nameSeccion:string,paisid:number,paisname:string, idsubmenu:number,submenuname:string,nivelid?:number, nivelname?:string): void {
+    //this.dataTransfer.setData(post); // Enviar los datos al servicio
+
+
+    // Definir los parámetros que deseas pasar
+  const seccion = nameSeccion;
+  const seccionid = idseccion;  // Suponiendo que este es el id de la sección
+  const country = paisname;
+  const countryid = paisid;  // El id del país
+  const submenu = submenuname;
+  const submenuid = idsubmenu;  // El id del submenu
+  const tercernivel = nivelname;
+  const tercernivelid = nivelid;  // El id del tercer nivel
+
+  // Guardar los parámetros en el servicio
+  this.dataTransfer.selectTitles(seccion, seccionid, country, countryid, submenu, submenuid, tercernivel, tercernivelid);
+
+  // Redirigir a 'AsuntosComponent' sin pasar parámetros en la URL
+
+    this.router.navigate(['Home','Asuntos']); // Redirigir al componente `subject`
+
+    
+         let title = 'Mis Mensajes';
+         let title2='Nuevo Mensaje';
+  
+         let activacion = true;
+      this.breadcrumbsService.setStringList(title,title2,activacion);
+    
+  }
+
+  navigateToNews():void{
+    this.router.navigate(['Home']);
   }
 
   redireccionar(personid: number, seccion: number, pais: number, submenu: number, tercerNivel?: number): void {

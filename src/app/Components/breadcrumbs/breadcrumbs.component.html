@@ -4,7 +4,7 @@
         <ul class="flex items-center space-x-2">
             <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
                 <li>
-                    <a *ngIf="!last" [routerLink]="breadcrumb.url" class="breadcrumb-link text-blue-500 hover:underline">
+                    <a *ngIf="!last" [routerLink]="breadcrumb.url" (click)="clear()" class="breadcrumb-link text-blue-500 hover:underline">
                         {{ breadcrumb.label }}
                     </a>
                     <span *ngIf="last" class="font-semibold">{{ breadcrumb.label }}</span>

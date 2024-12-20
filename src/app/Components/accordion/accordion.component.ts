@@ -3,6 +3,8 @@ import { GLOBAL_IMPORTS } from '../../global-imports';
 import { BreadcrumbsService } from '../../Services/breadcrumbs.service';
 import { MessageService } from '../../Services/message.service';
 import { FilterCriteria } from '../../Interfaces/Post.interface';
+import { DataTransferService } from '../../Services/data-transfer.service';
+import { Router } from '@angular/router';
 
 
 
@@ -205,7 +207,8 @@ export class AccordionComponent implements OnInit {
   selectedCountry: any = null;  // Nuevo estado para el país seleccionado
   dropdownOpen: boolean = false;  // Controla si el dropdown está abierto 
 
-  constructor(private breadcrumbService: BreadcrumbsService, private messageService: MessageService) { }
+  constructor(private breadcrumbService: BreadcrumbsService, private messageService: MessageService, private dataTransfer: DataTransferService,
+    private router: Router) { }
 
   selectTitles(seccion: string, seccionid:number, country: string, countryid:number, submenu?: string, submenuid?:number, tercernivel?: string,tercernivelid?:number): void {
     const title = [seccion];
@@ -232,16 +235,29 @@ export class AccordionComponent implements OnInit {
 
   ngOnInit() {
     // Al cargar la página, selecciona el primer menú
-    this.selectedMenu = this.menu[0];
-
-    // Seleccionar el país con id: 1
-    this.selectedCountry = this.selectedMenu.pais.find((pais: any) => pais.id === 1);
-
-    // Si no se encuentra el país, se selecciona el primero de la lista
-    if (!this.selectedCountry) {
-      this.selectedCountry = this.selectedMenu.pais[0];  // Default to the first country if id: 2 is not found
+    // Verificar si hay parámetros almacenados en el servicio
+    let params = this.dataTransfer.getFilterParams();
+    if (params) {
+      console.log('entre en acordion')
+      // Si hay parámetros, ejecutar la lógica selectTitles
+      const { seccion, seccionid, country, countryid, submenu, submenuid, tercernivel, tercernivelid } = params;
+      this.selectTitles(seccion, seccionid, country, countryid, submenu, submenuid, tercernivel, tercernivelid);
+      this.router.navigate(['Home','Asuntos','Mensajes']);
+      params=''
     }
-    this.selectTitles(this.selectedMenu.nombre,this.selectedMenu.id, this.selectedCountry.nombre,this.selectedCountry.id);
+    else{
+      this.selectedMenu = this.menu[0];
+
+      // Seleccionar el país con id: 1
+      this.selectedCountry = this.selectedMenu.pais.find((pais: any) => pais.id === 1);
+  
+      // Si no se encuentra el país, se selecciona el primero de la lista
+      if (!this.selectedCountry) {
+        this.selectedCountry = this.selectedMenu.pais[0];  // Default to the first country if id: 2 is not found
+      }
+      this.selectTitles(this.selectedMenu.nombre,this.selectedMenu.id, this.selectedCountry.nombre,this.selectedCountry.id);
+    }
+    
   }
 
   toggleMenu(menu: any) {
