@@ -13,6 +13,7 @@ export interface Post {
   person: Person;
   subject:boolean;
   seccion:number;
+  nameSeccion:string;
   pais:Pais[];
   content: string;
   followUps: FollowUp[]; // Lista de seguimientos

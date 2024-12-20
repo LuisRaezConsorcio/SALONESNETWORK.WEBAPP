@@ -60,6 +60,7 @@ export class NewsComponent implements OnInit {
       },
       subject: false, // Asumimos que es una respuesta, no un tema principal
       seccion: 0, // Puedes reemplazarlo con un valor válido según tu lógica
+      nameSeccion:'',
       pais: [
         {
           id: 1, // Puedes ajustar según el país correspondiente
@@ -81,6 +82,8 @@ export class NewsComponent implements OnInit {
     };
 
     this.post.unshift(newPost);
+    this.filteredPosts.unshift(newPost);
+    console.log(this.post)
     
   }
 
@@ -111,6 +114,7 @@ export class NewsComponent implements OnInit {
         },
         subject: false, // Asumimos que es una respuesta, no un tema principal
         seccion: 0, // Puedes reemplazarlo con un valor válido según tu lógica
+        nameSeccion:'',
         pais: [
           {
             id: 1, // Puedes ajustar según el país correspondiente
@@ -145,6 +149,8 @@ export class NewsComponent implements OnInit {
 
       // Agregar al listado de posts para que sea visible
       this.post.unshift(newReply);
+      this.filteredPosts.unshift(newReply);
+      console.log(this.post)
     }
   }
 

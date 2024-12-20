@@ -36,7 +36,7 @@ export class MispostsComponent implements OnInit {
   }
 
   applyFilter() {
-    this.filteredPosts = this.post.filter(post => post.person.id===6);
+    this.filteredPosts = this.post.filter(post => post.person.id===16);
   }
 
   getMaxId = (posts: Post[]): number => {
@@ -65,6 +65,7 @@ export class MispostsComponent implements OnInit {
         },
         subject: false, // Asumimos que es una respuesta, no un tema principal
         seccion: 0, // Puedes reemplazarlo con un valor válido según tu lógica
+        nameSeccion:'',
         pais: [
           {
             id: 1, // Puedes ajustar según el país correspondiente

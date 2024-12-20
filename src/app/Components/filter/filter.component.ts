@@ -96,7 +96,6 @@ export class FilterComponent  implements OnInit {
 
   // Aplicar filtro definitivo al servicio
   applyFilter() {
-    console.log('holi')
     if (this.filterCriteria) {
       // Verificar si estamos en la ruta de Noticias
       if (this.isNoticiasRoute()) {
@@ -110,10 +109,6 @@ export class FilterComponent  implements OnInit {
         this.filterCriteria.noticiaId = undefined; // Limpiar noticiaId
         this.filterCriteria.startDate = undefined;
         this.filterCriteria.endDate = undefined;
-      console.log(this.filterCriteria)
-
-
-  
       } 
       
       if(this.isPublicacionesRoute()) {
@@ -124,11 +119,10 @@ export class FilterComponent  implements OnInit {
         this.filterCriteria.paisId=undefined,
         this.filterCriteria.subMenuId=undefined,
         this.filterCriteria.tercerNivelId=undefined,
-        this.filterCriteria.personId = 6; // Asignar un personId específico si es necesario
+        this.filterCriteria.personId = 16; // Asignar un personId específico si es necesario
         this.filterCriteria.noticiaId = undefined; // Limpiar noticiaId
         this.filterCriteria.startDate = undefined;
         this.filterCriteria.endDate = undefined;
-      console.log(this.filterCriteria)
 
       }
 
@@ -143,7 +137,6 @@ export class FilterComponent  implements OnInit {
       }
   
       // Pasar los filtros al servicio
-      console.log(this.filterCriteria)
       this.messageService.setTempFilterCriteria(this.filterCriteria);
     }
   }
@@ -167,7 +160,7 @@ export class FilterComponent  implements OnInit {
         : this.isPublicacionesRoute()
         ? {
           subject: undefined,
-          personId:6,
+          personId:16,
           seccion: undefined,
           paisId: undefined,
           subMenuId: undefined,

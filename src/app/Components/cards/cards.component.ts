@@ -4,11 +4,13 @@ import { GLOBAL_IMPORTS } from '../../global-imports';
 
 import { loadCKEditorCloud, CKEditorModule, type CKEditorCloudResult, type CKEditorCloudConfig } from '@ckeditor/ckeditor5-angular';
 import type { ClassicEditor, EditorConfig } from 'https://cdn.ckeditor.com/typings/ckeditor5.d.ts';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
-import { FollowUp, Post } from '../../Interfaces/Post.interface';
+import { FilterCriteria, FollowUp, Post } from '../../Interfaces/Post.interface';
+import { MessageService } from '../../Services/message.service';
+import { DataTransferService } from '../../Services/data-transfer.service';
 
 
 @Component({
@@ -31,26 +33,43 @@ export class CardsComponent implements OnInit {
 
   //posts: Post[] = [];
 
-  
-  titulo: string = '';
+
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
+    private messageService: MessageService, private dataTransfer: DataTransferService
   ) { }
 
   public ngOnInit(): void {
 
-    this.route.url.subscribe(urlSegments => {
-      const rutaActual = urlSegments[0].path;
 
-      // Cambiar el título basado en la ruta
-      if (rutaActual === 'Noticias') {
-        this.titulo = 'Revisa las Noticias Generales';
-      } else if (rutaActual === 'Mensajes') {
-        this.titulo = 'Revisa los Mensajes del Area';
-      } else {
-        this.titulo = 'Título por defecto';
-      }
+  }
+
+  navigateToSubject(post: any): void {
+    this.dataTransfer.setData(post); // Enviar los datos al servicio
+    this.router.navigate(['/Asuntos']); // Redirigir al componente `subject`
+  }
+
+  redireccionar(personid: number, seccion: number, pais: number, submenu: number, tercerNivel?: number): void {
+
+
+    const filterCriteria: FilterCriteria = {
+      subject: true,
+      seccion: seccion,
+      paisId: pais,
+      subMenuId: submenu,
+      tercerNivelId: tercerNivel,
+      personId: personid, // Añadir el personId
+      noticiaId: undefined,
+      startDate: undefined,
+      endDate: undefined,
+    };
+    this.messageService.setTempFilterCriteria(filterCriteria);
+    this.router.navigate(['/home/asuntos/mensajes']).then(() => {
+      console.log('Redirigido correctamente');
+    }).catch((error) => {
+      console.error('Error al redirigir:', error);
     });
   }
 

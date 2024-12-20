@@ -18,9 +18,9 @@
     <ul class="menu bg-base-200 min-h-full">
 
 
-      <li>
+      <li  [routerLink]="['Noticias']"  (click)="setStringsForRoute(1)">
         <div id="menuReportes" class="btm-nav bottom-[initial] relative bg-transparent" routerLinkActive="active">
-          <a [routerLink]="['Noticias']"  (click)="setStringsForRoute(1)">
+          <a>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper"
               viewBox="0 0 16 16">
               <path
@@ -32,9 +32,9 @@
           </a>
         </div>
       </li>
-      <li>
+      <li  [routerLink]="['Asuntos']"  (click)="setStringsForRoute(2)">
         <div id="menuReportes" class="btm-nav bottom-[initial] relative bg-transparent" routerLinkActive="active">
-          <a [routerLink]="['Asuntos']"  (click)="setStringsForRoute(2)">
+          <a>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-clipboard-data" viewBox="0 0 16 16">
               <path
@@ -48,9 +48,9 @@
           </a>
         </div>
       </li>
-      <li>
+      <li [routerLink]="['Publicaciones']"  (click)="setStringsForRoute(3)">
         <div id="menuReportes" class="btm-nav bottom-[initial] relative bg-transparent" routerLinkActive="active">
-          <a [routerLink]="['Publicaciones']"  (click)="setStringsForRoute(3)">
+          <a>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-clipboard-data" viewBox="0 0 16 16">
               <path

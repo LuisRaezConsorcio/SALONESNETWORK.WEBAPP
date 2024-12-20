@@ -43,36 +43,24 @@ export class MessagesComponent implements OnInit {
     });
   }
 
-  // Método para aplicar un filtro según los criterios
-  applyFilter(criteria: Partial<FilterCriteria>) {
-    this.filteredPosts = this.post.filter(post =>
-      (criteria.subject === undefined || post.subject === criteria.subject) &&
-      (criteria.seccion === undefined || post.seccion === criteria.seccion) &&
-      (criteria.paisId === undefined || post.pais.some(p => p.id === criteria.paisId)) &&
-      (criteria.subMenuId === undefined || post.pais.some(p => p.subMenus.some(s => s.id === criteria.subMenuId))) &&
-      (criteria.personId === undefined || post.person.id === criteria.personId) &&
-      (criteria.noticiaId === undefined || post.id === criteria.noticiaId) &&
-      (criteria.startDate === undefined || new Date(post.createdAt) >= new Date(criteria.startDate)) &&
-      (criteria.endDate === undefined || new Date(post.createdAt) <= new Date(criteria.endDate))
-    );
-  }
-
   // Manejo de la creación de un nuevo post
   handleNewPost(postContent: string): void {
-    const newReply: Post = {
+    const newPost: Post = {
       id: this.maxId++, // ID único
       content: postContent.trim(),
       person: this.getCurrentUser(),
       subject: true,
       seccion: 1,
+      nameSeccion:'',
       pais: this.getDefaultPais(),
       followUps: [],
       replyTo: null,
       replies: [],
       createdAt: new Date(),
     };
-
-    this.post.unshift(newReply); // Añadir al principio
+    this.post.unshift(newPost); // Añadir al principio
+    this.filteredPosts.unshift(newPost);
+    console.log(this.post)
   }
 
   // Obtener el máximo ID de los posts actuales
@@ -92,6 +80,7 @@ export class MessagesComponent implements OnInit {
         person: this.getCurrentUser(),
         subject: true,
         seccion: 1,
+        nameSeccion:'',
         pais: this.getDefaultPais(),
         followUps: [],
         replyTo: originalPost,
@@ -102,6 +91,8 @@ export class MessagesComponent implements OnInit {
       newReply.content = `Respuesta: ${replyContent} \n------------------- \nMensaje original al que se responde: \n${originalContentWithFollowUps}`;
       originalPost.replies.push(newReply);
       this.post.unshift(newReply);
+      this.filteredPosts.unshift(newReply);
+      console.log(this.post)
     }
   }
 
@@ -161,7 +152,7 @@ export class MessagesComponent implements OnInit {
         subMenus: [
           {
             id: 1,
-            name: 'Fundo Don Edmundo',
+            name: 'Codo del Pozuzo',
             tercerNivel: [],
           },
         ],

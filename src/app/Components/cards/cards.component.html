@@ -1,10 +1,54 @@
-
-
 <br>
 
 <div
   class="card bg-white p-6 rounded-lg shadow-lg max-w-5xl min-w-[320px] overflow-auto w-full mx-auto bg-white rounded-lg shadow-md">
 
+  
+
+
+  <div *ngIf="post.seccion > 0" class="flex justify-between items-start border-b border-gray-300 p-4">
+    <!-- Información de país y submenú (Lado Izquierdo) -->
+    <div>
+      <div *ngFor="let pais of post.pais">
+        <small class="block font-bold">País: {{ pais.id }} - {{ pais.name }}</small>
+        <div *ngFor="let submenu of pais.subMenus">
+          <small class="block">Submenú: {{ submenu.id }} - {{ submenu.name }}</small>
+          <div *ngIf="submenu.tercerNivel.length > 0" class="ml-4">
+            <div *ngFor="let nivel of submenu.tercerNivel">
+              <small class="block">Tercer Nivel: {{ nivel.id }} - {{ nivel.name }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Botón (Lado Derecho) -->
+    <div>
+      <div *ngFor="let pais of post.pais">
+        <div *ngFor="let submenu of pais.subMenus">
+          <div *ngIf="submenu.tercerNivel.length > 0" class="ml-4">
+            <div *ngFor="let nivel of submenu.tercerNivel">
+              <button (click)="redireccionar(post.person.id,post.seccion,pais.id, submenu.id,nivel.id)" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Ir a la fuente
+              </button>
+            </div>
+          </div>
+          <div *ngIf="submenu.tercerNivel.length === 0" class="ml-4">
+            <button (click)="navigateToSubject(post)" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+              Ir a la fuente
+            </button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <div *ngIf="post.seccion === 0">
+    <!-- Información de país y submenú -->
+    <small class="block">Noticia General</small>
+  </div>
   <div class="grid grid-cols-5 gap-4 border border-gray-300 p-4 min-w-[590px]">
     <!-- Primera columna: Datos de la persona -->
     <div class="col-span-1 justify-items-center border-r border-gray-300 p-2">
@@ -16,7 +60,7 @@
       <small class="block">{{ post.id }}</small>
     </div>
 
-    <!-- Segunda columna: Contenido del seguimiento -->
+    <!-- Segunda columna: Contenido del mensajes -->
     <div class="col-span-3 border-r border-gray-300 p-2">
       <div class="mt-2 bg-green-100 p-4 rounded-md overflow-auto break-words whitespace-pre-wrap">
         {{ post.content }}
@@ -41,7 +85,8 @@
               </div>
 
               <!-- Segunda columna: Contenido del seguimiento -->
-              <div class="col-span-3 border-r border-gray-300 mt-2 bg-green-100 p-4 rounded-md overflow-auto break-words whitespace-normal">
+              <div
+                class="col-span-3 border-r border-gray-300 mt-2 bg-green-100 p-4 rounded-md overflow-auto break-words whitespace-normal">
                 <pre class="text-sm">{{ followUp.content }}</pre>
               </div>
 
@@ -57,7 +102,7 @@
       </div>
     </div>
 
-    <!-- Tercera columna: Fecha de seguimiento -->
+    <!-- Tercera columna: Fecha de mensajes -->
     <div class="col-span-1 justify-items-end">
       <p class="text-sm text-gray-500">
         {{ post.createdAt | date: 'dd/MM/yyyy HH:mm:ss' }}

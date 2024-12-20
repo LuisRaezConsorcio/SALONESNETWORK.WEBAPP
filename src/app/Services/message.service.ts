@@ -12,6 +12,7 @@ export class MessageService {
       {
         id: 43,
         seccion: 57,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -40,6 +41,7 @@ export class MessageService {
       {
         id: 42,
         seccion: 57,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -68,6 +70,7 @@ export class MessageService {
       {
         id: 41,
         seccion: 57,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -96,6 +99,7 @@ export class MessageService {
       {
         id: 40,
         seccion: 56,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -124,6 +128,7 @@ export class MessageService {
       {
         id: 39,
         seccion: 56,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -152,6 +157,7 @@ export class MessageService {
       {
         id: 38,
         seccion: 56,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -180,6 +186,7 @@ export class MessageService {
       {
         id: 37,
         seccion: 55,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -208,6 +215,7 @@ export class MessageService {
       {
         id: 36,
         seccion: 55,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -236,6 +244,7 @@ export class MessageService {
       {
         id: 35,
         seccion: 55,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -264,6 +273,7 @@ export class MessageService {
       {
         id: 34,
         seccion: 55,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -292,6 +302,7 @@ export class MessageService {
       {
         id: 33,
         seccion: 55,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -320,6 +331,7 @@ export class MessageService {
       {
         id: 32,
         seccion: 55,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -348,6 +360,7 @@ export class MessageService {
       {
         id: 31,
         seccion: 55,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -376,6 +389,7 @@ export class MessageService {
       {
         id: 30,
         seccion: 55,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -404,6 +418,7 @@ export class MessageService {
       {
         id: 29,
         seccion: 55,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -432,6 +447,7 @@ export class MessageService {
       {
         id: 28,
         seccion: 2,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -460,6 +476,7 @@ export class MessageService {
       {
         id: 27,
         seccion: 2,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -488,6 +505,7 @@ export class MessageService {
       {
         id: 26,
         seccion: 2,
+nameSeccion:"prueba",
         pais: [{
           id: 3,
           name: 'Peru',
@@ -516,6 +534,7 @@ export class MessageService {
       {
         id: 25,
         seccion: 2,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -544,6 +563,7 @@ export class MessageService {
       {
         id: 24,
         seccion: 2,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -572,6 +592,7 @@ export class MessageService {
       {
         id: 23,
         seccion: 2,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -600,6 +621,7 @@ export class MessageService {
       {
         id: 22,
         seccion: 2,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -628,6 +650,7 @@ export class MessageService {
       {
         id: 21,
         seccion: 2,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -656,6 +679,7 @@ export class MessageService {
       {
         id: 20,
         seccion: 2,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -684,6 +708,7 @@ export class MessageService {
       {
         id: 19,
         seccion: 1,
+nameSeccion:"prueba",
         pais: [{
           id: 3,
           name: 'Peru',
@@ -712,6 +737,7 @@ export class MessageService {
       {
         id: 18,
         seccion: 1,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -740,6 +766,7 @@ export class MessageService {
       {
         id: 17,
         seccion: 1,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -768,6 +795,7 @@ export class MessageService {
       {
         id: 16,
         seccion: 1,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -781,7 +809,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 16",
         person: {
-          id: 6,
+          id: 16,
           name: "Carlos Palomino",
           position: "Gerente de Sistemas",
           area: "Sistemas",
@@ -796,6 +824,7 @@ export class MessageService {
       {
         id: 15,
         seccion: 1,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -809,7 +838,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 15",
         person: {
-          id: 6,
+          id: 16,
           name: "Carlos Palomino",
           position: "Gerente de Sistemas",
           area: "Sistemas",
@@ -824,6 +853,7 @@ export class MessageService {
       {
         id: 14,
         seccion: 1,
+nameSeccion:"prueba",
         pais: [{
           id: 2,
           name: 'Peru',
@@ -837,7 +867,7 @@ export class MessageService {
         subject: true,
         content: "Contenido de prueba 14",
         person: {
-          id: 6,
+          id: 16,
           name: "Carlos Palomino",
           position: "Gerente de Sistemas",
           area: "Sistemas",
@@ -861,6 +891,7 @@ export class MessageService {
         },
         subject: true,
         seccion: 1,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -922,6 +953,7 @@ export class MessageService {
         },
         subject: true,
         seccion: 1,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -983,6 +1015,7 @@ export class MessageService {
         },
         subject: true,
         seccion: 1,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1044,6 +1077,7 @@ export class MessageService {
         },
         subject: false,
         seccion: 0,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1105,6 +1139,7 @@ export class MessageService {
         },
         subject: false,
         seccion: 0,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1166,6 +1201,7 @@ export class MessageService {
         },
         subject: false,
         seccion: 0,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1227,6 +1263,7 @@ export class MessageService {
         },
         subject: false,
         seccion: 0,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1288,6 +1325,7 @@ export class MessageService {
         },
         subject: false,
         seccion: 0,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1349,6 +1387,7 @@ export class MessageService {
         },
         subject: false,
         seccion: 0,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1410,6 +1449,7 @@ export class MessageService {
         },
         subject: false,
         seccion: 0,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1471,6 +1511,7 @@ export class MessageService {
         },
         subject: false,
         seccion: 0,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1532,6 +1573,7 @@ export class MessageService {
         },
         subject: false,
         seccion: 0,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1593,6 +1635,7 @@ export class MessageService {
         },
         subject: false,
         seccion: 0,
+nameSeccion:"prueba",
         pais: [{
           id: 1,
           name: 'Peru',
@@ -1657,7 +1700,6 @@ filteredPosts$ = this.filteredPostsSubject.asObservable();
     
     // Guardar filtros temporales (desde Accordion y Filter)
     setTempFilterCriteria(criteria: Partial<FilterCriteria>) {
-      console.log(criteria)
       if (!this.tempFilterCriteria) {
         this.tempFilterCriteria = {}; // Inicializar si no existe
       }
@@ -1668,6 +1710,8 @@ filteredPosts$ = this.filteredPostsSubject.asObservable();
       // Actualizamos los posts filtrados según los nuevos criterios
       this.applyFilterAndEmit();
     }
+
+    
     
     // Obtener filtros temporales (desde FilterComponent)
     getTempFilterCriteria(): Partial<FilterCriteria> | null {
@@ -1676,9 +1720,7 @@ filteredPosts$ = this.filteredPostsSubject.asObservable();
     
     // Aplicar el filtro a los posts y emitir los resultados
     private applyFilterAndEmit() {
-      console.log(this.tempFilterCriteria.personId)
       if (!this.tempFilterCriteria) {
-        console.log('cagaste')
         return; // Si no hay criterios, no hace nada
       }
     
@@ -1699,7 +1741,6 @@ filteredPosts$ = this.filteredPostsSubject.asObservable();
       // Emitir los posts filtradossdfdsfssss
       this.filteredPostsSubject.next(filteredPosts);
     
-      console.log('Posts filtrados emitidos:', filteredPosts);
     }
     
 }

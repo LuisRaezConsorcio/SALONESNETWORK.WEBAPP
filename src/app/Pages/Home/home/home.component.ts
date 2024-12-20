@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit{
         activacion = true;
         break;
       case 3:
-        title = 'Mis Post';
+        title = 'Mis Publicaciones';
         title2='Nuevo Post'
         activacion = false;
         break;

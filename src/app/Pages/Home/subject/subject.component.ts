@@ -5,6 +5,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { MessageService } from '../../../Services/message.service';
 import { Post } from '../../../Interfaces/Post.interface';
+import { DataTransferService } from '../../../Services/data-transfer.service';
 
 @Component({
   selector: 'app-subject',
@@ -19,14 +20,21 @@ export class SubjectComponent implements OnInit{
 
   isMessagesRoute = false;
 
+  receivedData: any = null; // Datos recibidos desde el servicio
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private messageService: MessageService) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private messageService: MessageService,private dataTransfer: DataTransferService) {
     this.posts = this.messageService.getPosts();
   }
   
 
   ngOnInit(): void {
     // Verificar si estamos en la ruta 'Messages' cuando se cargue el componente
+    this.dataTransfer.data$.subscribe((data) => {
+      if (data) {
+        this.receivedData = data; // Asignar los datos recibidos
+      }
+    });
+
     this.checkIfMessagesRoute();
 
     // Suscribirnos a los cambios en la ruta activa
